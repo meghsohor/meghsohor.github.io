@@ -1,0 +1,107 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css");
+body {
+  min-height: 100vh;
+}
+
+.banner {
+  display: block;
+  width: 300px;
+  height: 250px;
+  margin: 2rem auto;
+  text-decoration: none;
+  position: relative;
+  background: linear-gradient(135deg, #36b4e6 0%, #1869ba 100%);
+  overflow: hidden;
+}
+
+.banner img {
+  position: absolute;
+}
+
+.banner.banner-1 .text {
+  top: 10px;
+  left: 15px;
+}
+
+.banner.banner-1 .mascot {
+  bottom: 0;
+  right: 10px;
+}
+
+.banner.banner-2 .mascot {
+  bottom: 0;
+  left: 10px;
+}
+
+.banner.banner-2 .badge {
+  top: 5px;
+  right: 75px;
+  display: block;
+  width: 100px;
+}
+
+.banner.banner-2 .text {
+  top: 100px;
+  right: 0px;
+}
+
+.banner.banner-2 .condition {
+  bottom: 5px;
+  right: 10px;
+}
+
+.banner.banner-3 .mascot {
+  bottom: 0;
+  left: 10px;
+  z-index: 0;
+}
+
+.banner.banner-3 .mascot.top-mascot {
+  z-index: 2;
+}
+
+.banner.banner-3 .stamp {
+  top: 8px;
+  right: 8px;
+  width: 200px;
+  z-index: 1;
+}
+
+.banner.banner-3 .condition {
+  bottom: 5px;
+  right: 10px;
+}
+
+.banner.banner-4 .mascot {
+  top: 5px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 70px;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+}
+
+.banner.banner-4 span {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  top: 100px;
+}
+
+.banner.banner-4 span .button {
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 6px 5px -2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 6px 5px -2px rgba(0, 0, 0, 0.3);
+}
+
+.banner.banner-4 span .logo {
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=main.css.map */

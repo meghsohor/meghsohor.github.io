@@ -1,0 +1,1951 @@
+<!-- <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+if(!isset($_COOKIE['trafficbotrefcookie'])){
+    if(isset($_GET['ref']) && !empty($_GET['ref'])) {
+        $ref = trim(($_GET['ref']));
+        setcookie('trafficbotrefcookie', $ref, time() + 31536000);
+		if (!isset($_COOKIE['trafficbotrefcookie'])) $_COOKIE['trafficbotrefcookie'] = $ref;
+    } else {
+        setcookie('trafficbotrefcookie', '111', time() + 31536000);
+		if (!isset($_COOKIE['trafficbotrefcookie'])) $_COOKIE['trafficbotrefcookie'] = '111';
+    }
+}
+$refCookie = $_COOKIE['trafficbotrefcookie'];
+
+include("db.php");
+$query = "SELECT * FROM `mapcountries` ORDER BY id DESC LIMIT 1";
+$result = $mysqli->query($query);
+while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+    
+	$totalHits = number_format($row["total_hits"]);
+	$customers = number_format($row["customers"]);
+	$websites = number_format($row["websites"]);
+	
+	$jsonHits = json_decode( $row["json_vals"]);
+
+	$hitsAR = number_format($jsonHits->AR);
+	$hitsAU = number_format($jsonHits->AU);
+	$hitsBE = number_format($jsonHits->BR);
+	$hitsBR = number_format($jsonHits->BR);
+	$hitsCA = number_format($jsonHits->CA);
+	$hitsCN = number_format($jsonHits->CN);
+	$hitsCL = number_format($jsonHits->CL);
+	$hitsCO = number_format($jsonHits->CO);
+	$hitsCZ = number_format($jsonHits->CZ);
+	$hitsFI = number_format($jsonHits->FI);
+	$hitsFR = number_format($jsonHits->FR);
+	$hitsDE = number_format($jsonHits->DE);
+	$hitsHK = number_format($jsonHits->HK);
+	$hitsIN = number_format($jsonHits->IN);
+	$hitsID = number_format($jsonHits->ID);
+	$hitsIL = number_format($jsonHits->IL);
+	$hitsIR = number_format($jsonHits->IR);
+	$hitsIT = number_format($jsonHits->IT);
+	$hitsJP = number_format($jsonHits->JP);
+	$hitsMX = number_format($jsonHits->MX);
+	$hitsNL = number_format($jsonHits->NL);
+	$hitsNO = number_format($jsonHits->NO);
+	$hitsPK = number_format($jsonHits->PK);
+	$hitsPL = number_format($jsonHits->PL);
+	$hitsRO = number_format($jsonHits->RO);
+	$hitsRU = number_format($jsonHits->RU);
+	$hitsZA = number_format($jsonHits->ZA);
+	$hitsES = number_format($jsonHits->ES);
+	$hitsCH = number_format($jsonHits->CH);
+	$hitsTW = number_format($jsonHits->TW);
+	$hitsTH = number_format($jsonHits->TH);
+	$hitsTR = number_format($jsonHits->TR);
+	$hitsUK = number_format($jsonHits->UK);
+	$hitsUA = number_format($jsonHits->UA);
+	$hitsUS = number_format($jsonHits->US);
+	$hitsVE = number_format($jsonHits->VE);
+}
+//var_dump($jsonHits) . "\n";
+//echo $hitsUS;
+?> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>UpSEO - Logiciel De Référencement Naturel SEO Automatisé</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Obtenez plus de visiteurs sur votre site et décuplez vos conversions. UpSEO est un logiciel qui automatise la croissance de votre réferencement naturel SEO. Essayez le gratuitement">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css"><!-- Main Stylesheet CSS -->
+    <link rel="stylesheet" href="css/jquery-jvectormap-2.0.3.css"><!-- Map CSS -->
+    <link rel="stylesheet" href="css/template-color-4.css" id="dynamic-style"><!-- Color Stylesheet CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="82">
+
+    <div class="site__layer"></div>
+    <nav class="navbar navbar-expand-lg navbar-togglable navbar-dark">
+        <div class="container">
+            <!-- Brand/ logo -->
+            <a class="navbar-brand" href="index.html" onclick="window.scrollTo(0, 0);"><img src="images/logo.svg"
+                    alt="logo image" class="img-fluid" height="35px" width="142px"></a>
+            <!-- Toggler -->
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <!-- Links -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="location.href='affiliate.html';" href="affiliate.html">Affiliate
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="location.href='/blog/';" href="https://upseo.io/blog/">Blog
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="location.href='freetrial.html';" href="freetrial.html">Free Trial
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="location.href='register.html';" href="register.html">Register
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-alpha ml-lg-3 mt-3 mt-lg-0" onclick="location.href='login.html';"
+                            href="/login.html">Log in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="location.href='/fr/index.html';" href="/fr/index.html"><small>FR
+                                <img src="images/menu-flag-fr.png" alt="FR" height="8"></small></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- / .navbar-collapse -->
+        </div>
+        <!-- / .container -->
+    </nav>
+    <section id="banner" class="banner banner-full d-flex align-items-center parallax">
+        <!---===banner start=====-->
+        <div id="particles-js"></div>
+        <div class="container" style="z-index: 5">
+            <div class="banner-text">
+                <div class="row align-items-stretch">
+                    <div class="col-lg-6 col-md-6 mb-5 mb-md-0">
+                        <div class="h-100 d-flex flex-column justify-content-center">
+                            <h1 class="text-white mb-0 text-uppercase">Leave your seo strategy in the hands of our
+                                experts.</h1>
+                            <p class="lead">UPSEO provides a complete and high quality SEO service. An Expert works on
+                                your website and provides you with a personalized follow-up. Being the first on Google
+                                has never been so easy!</p>
+                            <span class="btn-groups mt-2">
+                                <a href="freetrial.html" class="btn btn-alpha mr-lg-3 mr-2 "> See Pricing <i
+                                        class="fa fa-angle-right ml-3"></i></a>
+                                <a href="#about" class="text-white"> Read More <i
+                                        class="fa fa-angle-right ml-2"></i></a>
+                                <p class="lead">No Commitment</p>
+                            </span>
+                        </div>
+                    </div>
+                    <!---/col-->
+                    <div class="col-lg-5 col-md-6 offset-lg-1">
+                        <!---======Count Down Timer===========-->
+                        <img class="card-img-top header-banner-img" src="images/headerbg.svg"
+                            alt="UpSEO - SEO services">
+                    </div>
+                    <!-- /column -->
+                </div>
+                <!---/row-->
+            </div>
+            <!---/banner-text-->
+        </div>
+        <!--/container-->
+    </section>
+
+    <!---====== Pricing Section ===========-->
+    <section class="burger pb-5" id="pricing">
+        <div class="container">
+            <!-- container-start -->
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <h2 class="section-heading text-uppercase mb-5">Flexible Plans that grow with you</h2>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-3 offset-lg-3 col-sm-6 col-xs-12 col pricing-column">
+                    <div class="inside gray-light-bg">
+                        <h3>Mover</h3>
+                        <h4><sup>&dollar;</sup> 289</h4>
+                        <p>per month</p>
+                        <p class="plandesc"><strong>30H SEO Expert</strong></p>
+                        <a class="compare-link" href="javascript:void(0)">See all that's included</a>
+                        <hr>
+                        <button class="btn btn-alpha mt-2" id="checkout-button-plan_EyB9JbWHpAr9y5" role="link">Let's Go
+                            <i class="fa fa-angle-right ml-3"></i></button>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 col-xs-12 col pricing-column">
+                    <div class="inside gray-light-bg">
+                        <div class="ribbon ribbon-top-right"><span>POPULAR</span></div>
+                        <h3>Shaker</h3>
+                        <h4><sup>&dollar;</sup> 589</h4>
+                        <p>per month</p>
+                        <p class="plandesc"><strong>65H SEO Expert</strong></p>
+                        <a class="compare-link" href="javascript:void(0)">See all that's included</a>
+                        <hr>
+                        <button class="btn btn-alpha mt-2" id="checkout-button-plan_EyBBOj3AlDfCIv" role="link">Let's Go
+                            <i class="fa fa-angle-right ml-3"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 pricing-column lowwidth">
+                    <div class="inside gray-light-bg">
+                        <h2>Need more informations?</h2>
+                        <p>SEO strategy is crucial for your website. You need more information, we understand that.
+                            Don’t feel hesitate to contact us!</p>
+                        <a href="#contact"><button class="btn btn-alpha mt-2">Contact Us <i
+                                    class="fa fa-angle-right ml-3"></i></button></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!---====== Timeline Section ===========-->
+    <section id="affiliate" class="about burger gradient-bg text-white" style="padding-bottom: 4em;">
+        <!---======About start===========-->
+        <div class="container about-inner">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 mb-5 mb-md-0">
+                    <h5 class="small-heading">A small step for huge results</h5>
+                    <h3 class="section-heading">How do we work?</h3>
+                </div>
+                <!---/col-->
+                <div class="col-md-12 col-sm-12 justify-content-center align-items-center d-flex">
+                    <img class="card-img-top" src="images/timeline.svg" alt="UpSEO - SEO services"
+                        style="max-width: 800px;">
+                </div>
+                <!---/col-->
+            </div>
+        </div>
+    </section>
+
+    <!---====== Partners Section ===========-->
+    <section class="burger partner gray-light-bg" id="partner">
+        <div class="container">
+            <!-- container-start -->
+            <div class="row">
+                <div class="col-lg-8 col-sm-12">
+                    <h5 class="small-heading">Partners</h5>
+                    <h2 class="section-heading">We work with the best</h2>
+                </div>
+                <!---/col-->
+            </div>
+            <!---/row-->
+            <div class="row partners-list d-flex flex-wrap mt-4 justify-content-center">
+                <!-- row start -->
+                <div class="col-sm-3 col-6">
+                    <!-- column start -->
+                    <img src="images/partner1.png" alt="Partner Logo" class="img-fluid">
+                </div>
+                <!-- column end -->
+                <div class="col-sm-3 col-6">
+                    <!-- column start -->
+                    <img src="images/partner2.png" alt="Partner Logo" class="img-fluid">
+                </div>
+                <!-- column end -->
+                <div class="col-sm-3 col-6">
+                    <!-- column start -->
+                    <img src="images/partner3.png" alt="Partner Logo" class="img-fluid">
+                </div>
+                <!-- column end -->
+                <div class="col-sm-3 col-6">
+                    <!-- column start -->
+                    <img src="images/partner4.png" alt="Partner Logo" class="img-fluid">
+                </div>
+                <!-- column end -->
+                <div class="col-sm-3 col-6">
+                    <!-- column start -->
+                    <img src="images/partner5.png" alt="Partner Logo" class="img-fluid">
+                </div>
+                <!-- column end -->
+                <div class="col-sm-3 col-6">
+                    <!-- column start -->
+                    <img src="images/partner6.png" alt="Partner Logo" class="img-fluid">
+                </div>
+                <!-- column end -->
+                <div class="col-sm-3 col-6">
+                    <!-- column start -->
+                    <img src="images/partner7.png" alt="Partner Logo" class="img-fluid">
+                </div>
+                <!-- column end -->
+                <div class="col-sm-3 col-6">
+                    <!-- column start -->
+                    <img src="images/partner8.png" alt="Partner Logo" class="img-fluid">
+                </div>
+                <!-- column end -->
+            </div>
+        </div>
+        <!-- container end -->
+    </section>
+
+
+    <!---====== Feature Comparison Section ===========-->
+    <section style="padding-top: 5rem">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <h2 class="section-heading mb-4">Feature Comparison</h2>
+                </div>
+            </div>
+
+            <div class="row feature-comparison-container">
+                <table class="table">
+                    <thead class="hidemobile">
+                        <tr>
+                            <th></th>
+                            <th>Mover</th>
+                            <th>Shaker</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Website Analysis And Recommendations</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Keyword Research and Selection</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Competitors Analysis</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Google Webmaster tools setup and Verification</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Bing Webmaster tools setup and Verification</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Optimization of sitemap.xml</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Optimization of ror.xml</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Optimization of urllist.txt</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Optimization of info.txt</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Optimization of robots.txt</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Google Analtyic Setup</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Title Tag Optimization</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Description Tag Optimization</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Keyword Tag Optimization</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Alt Tag Optimization</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Anchor Text Optimization</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">H1 Tags Optimization</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">HTML Code Clean Up & Optimization</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Image Optimization</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Optimize RSS Feed Title and Description</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Hyperlink Optimization</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">In depth site Analysis</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Link Validation</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Navigation & Design Optimization</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Site Back-links count</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Local Search Engine Optimization</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Optimization for Multiple Browsers</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Content Optimization</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Baseline Keyword Ranking Report</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Creation of Social Media Accounts</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Social Bookmarking</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Image Submission</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Blog Commenting</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Social Media Optimization</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Blog Creation</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Business Directory Listing</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Product Submission</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Profile Creation</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Competitors Backlinks</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Video Marketing linking</th>
+                            <td></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">PPT</th>
+                            <td></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Infographic</th>
+                            <td></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Web2.0</th>
+                            <td></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Number of Keywords</th>
+                            <td>10</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Number of Backlinks / month</th>
+                            <td>50</td>
+                            <td>150</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Number of Blog posts / month</th>
+                            <td>1</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Weekly Report</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">UPSEO business credit</th>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">UPSEO corporate credit</th>
+                            <td></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!---====== Feature Explanation Section ===========-->
+    <section class="burger faq gray-light-bg" id="faq">
+        <div class="container">
+            <!-- container-start -->
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 text-center">
+                    <h2 class="mb-4">Features Explanation</h2>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-6 col-md-12">
+                    <div class="accordion" id="accordion1">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <span>01.</span>
+                                <div class="btn d-flex" role="tablist" data-toggle="collapse" data-target="#collapseOne"
+                                    aria-expanded="true" aria-controls="collapseOne">
+                                    <h5 class="mb-0">Website Analysis And Recommendations</h5>
+                                </div>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>We will analyze your website through SEO Tools and defines the status of
+                                        your website that where it stands and recommend
+                                        you missing things of your website.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <span>02.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseTwo" aria-controls="collapseTwo">
+                                    <h5 class="mb-0">Keyword Research and Selection</h5>
+                                </div>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>Keyword Research and Selection is very sensitive part of seo to analyze
+                                        best keywords for your website by using Google
+                                        Adwords Keywords Tool</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <span>03.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                    <h5 class="mb-0">Competitors Analysis</h5>
+                                </div>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>You should know competition status on search engines so that we can use
+                                        better strategies.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFour">
+                                <span>04.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                    <h5 class="mb-0">Google Webmaster tools setup and Verification</h5>
+                                </div>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>We will Setup Google webmaster tool for better website indexing and
+                                        checking errors in website if not present.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFive">
+                                <span>05.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                                    <h5 class="mb-0">Bing Webmaster tools setup and Verification</h5>
+                                </div>
+                            </div>
+                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>Setup of Bing webmaster tools for better website indexing and checking
+                                        errors in website.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingSix">
+                                <span>06.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                                    <h5 class="mb-0">Optimization of sitemap.xml</h5>
+                                </div>
+                            </div>
+                            <div id="collapseSix" class="collapse" aria-labelledby="headingSix"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>We will create sitemap in xml format to make sure indexing of each page
+                                        by Google search engines.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingSeven">
+                                <span>07.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                                    <h5 class="mb-0">Optimization of ror.xml</h5>
+                                </div>
+                            </div>
+                            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>We will create ror.xml sitemap in xml format for the website to make sure
+                                        indexing by yahoo search engine.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingEight">
+                                <span>08.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
+                                    <h5 class="mb-0">Optimization of urllist.txt</h5>
+                                </div>
+                            </div>
+                            <div id="collapseEight" class="collapse" aria-labelledby="headingEight"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>We will create urllist.txt format file to do indexing of each page in
+                                        Bing & Alexa.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingNine">
+                                <span>09.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                                    <h5 class="mb-0">Optimization of info.txt</h5>
+                                </div>
+                            </div>
+                            <div id="collapseNine" class="collapse" aria-labelledby="headingNine"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>We will create info.txt in order to have indexing on Alexa and other
+                                        local search engines.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTen">
+                                <span>10.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseTen" aria-expanded="true" aria-controls="collapseTen">
+                                    <h5 class="mb-0">Optimization of robots.txt</h5>
+                                </div>
+                            </div>
+                            <div id="collapseTen" class="collapse" aria-labelledby="headingTen"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>Optimizing site pages and how they appear in search engines. I will allow
+                                        the robots.txt file on your website.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingEleven">
+                                <span>11.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseEleven" aria-expanded="true" aria-controls="collapseEleven">
+                                    <h5 class="mb-0">Google Analtyic Setup</h5>
+                                </div>
+                            </div>
+                            <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>Google Analytics lets you measure your advertising ROI as well as track
+                                        your Flash, video, and social networking sites
+                                        and applications.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwelve">
+                                <span>12.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseTwelve" aria-expanded="true" aria-controls="collapseTwelve">
+                                    <h5 class="mb-0">Title Tag Optimization</h5>
+                                </div>
+                            </div>
+                            <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>We will add the exact keywords to the title tag, with an additional 1-3
+                                        words. Title Tag helps for keyword ranking in
+                                        search engines.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThirteen">
+                                <span>13.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseThirteen" aria-expanded="true"
+                                    aria-controls="collapseThirteen">
+                                    <h5 class="mb-0">Description Tag Optimization</h5>
+                                </div>
+                            </div>
+                            <div id="collapseThirteen" class="collapse" aria-labelledby="headingThirteen"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>Help to describe 250 words page services in short description. The meta
+                                        description should be optimized based on the
+                                        value of the title element for the page</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFourteen">
+                                <span>14.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseFourteen" aria-expanded="true"
+                                    aria-controls="collapseFourteen">
+                                    <h5 class="mb-0">Keyword Tag Optimization</h5>
+                                </div>
+                            </div>
+                            <div id="collapseFourteen" class="collapse" aria-labelledby="headingFourteen"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>Do not include any extra similar keywords, and enter no more than 6
+                                        keyphrases in total.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFifteen">
+                                <span>15.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseFifteen" aria-expanded="true" aria-controls="collapseFifteen">
+                                    <h5 class="mb-0">Alt Tag Optimization</h5>
+                                </div>
+                            </div>
+                            <div id="collapseFifteen" class="collapse" aria-labelledby="headingFifteen"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>We will optimize all the images and provide them Alt Text to each image
+                                        and improve keyword density.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingSixteen">
+                                <span>16.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseSixteen" aria-expanded="true" aria-controls="collapseSixteen">
+                                    <h5 class="mb-0">Anchor Text Optimization</h5>
+                                </div>
+                            </div>
+                            <div id="collapseSixteen" class="collapse" aria-labelledby="headingSixteen"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>We would have to make anchor tags with targeted keywords so that we can
+                                        make good internal connectivity to website same
+                                        like wiki because google give huge value of internals linking website.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingSeventeen">
+                                <span>17.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseSeventeen" aria-expanded="true"
+                                    aria-controls="collapseSeventeen">
+                                    <h5 class="mb-0">H1 Tags Optimization</h5>
+                                </div>
+                            </div>
+                            <div id="collapseSeventeen" class="collapse" aria-labelledby="headingSeventeen"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>H1 tags is important factor of On Page Optimization. We can describe
+                                        importance of keywords to search engine through h1
+                                        tags.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingEighteen">
+                                <span>18.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseEighteen" aria-expanded="true"
+                                    aria-controls="collapseEighteen">
+                                    <h5 class="mb-0">HTML Code Clean Up & Optimization</h5>
+                                </div>
+                            </div>
+                            <div id="collapseEighteen" class="collapse" aria-labelledby="headingEighteen"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>HTML also needs to be optimize to provide optimal results, one must not
+                                        create a website full of codes, try to make them
+                                        as small as you can so that the load time can get better and this also
+                                        helps in ranking better in SERP results</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingNineteen">
+                                <span>19.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseNineteen" aria-expanded="true"
+                                    aria-controls="collapseNineteen">
+                                    <h5 class="mb-0">Image Optimization</h5>
+                                </div>
+                            </div>
+                            <div id="collapseNineteen" class="collapse" aria-labelledby="headingNineteen"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>It refers to use alt tags properly. Using alt tags with every image will
+                                        help you to get traffic from image search as
+                                        well.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwenty">
+                                <span>20.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseTwenty" aria-expanded="true" aria-controls="collapseTwenty">
+                                    <h5 class="mb-0">Optimize RSS Feed Title and Description</h5>
+                                </div>
+                            </div>
+                            <div id="collapseTwenty" class="collapse" aria-labelledby="headingTwenty"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>If you already have a feed but later find that its title or description
+                                        isn’t that SEO friendly, use the
+                                        Title/Description Burner to change these meta tags for your feed.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwentyOne">
+                                <span>21.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseTwentyOne" aria-expanded="true"
+                                    aria-controls="collapseTwentyOne">
+                                    <h5 class="mb-0">Hyperlink Optimization</h5>
+                                </div>
+                            </div>
+                            <div id="collapseTwentyOne" class="collapse" aria-labelledby="headingTwentyOne"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>The anchor text used to create hyperlinks of your website always helps
+                                        you to rank better for those anchor texts, so try
+                                        to use keywords as your anchor text to create links, internal or
+                                        external.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="accordion" id="accordion2">
+                        <div class="card">
+                            <div class="card-header" id="headingTwentyTwo">
+                                <span>22.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseTwentyTwo" aria-expanded="true"
+                                    aria-controls="collapseTwentyTwo">
+                                    <h5 class="mb-0">In depth site Analysis</h5>
+                                </div>
+                            </div>
+                            <div id="collapseTwentyTwo" class="collapse" aria-labelledby="headingTwentyTwo"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>A deep analysis of your own website is necessary to do. It helps you to
+                                        detect all the errors and other malfunctioning
+                                        in your site.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwentyThree">
+                                <span>23.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseTwentyThree" aria-expanded="true"
+                                    aria-controls="collapseTwentyThree">
+                                    <h5 class="mb-0">Link Validation</h5>
+                                </div>
+                            </div>
+                            <div id="collapseTwentyThree" class="collapse" aria-labelledby="headingTwentyThree"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>All the links must be correct and must not be broken.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwentyFour">
+                                <span>24.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseTwentyFour" aria-expanded="true"
+                                    aria-controls="collapseTwentyFour">
+                                    <h5 class="mb-0">Navigation & Design Optimization</h5>
+                                </div>
+                            </div>
+                            <div id="collapseTwentyFour" class="collapse" aria-labelledby="headingTwentyFour"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>Your Navigation bar or any other navigation system must be good and user
+                                        friendly, with it a good design which attracts
+                                        the eye of the user is must.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwentyFive">
+                                <span>25.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseTwentyFive" aria-expanded="true"
+                                    aria-controls="collapseTwentyFive">
+                                    <h5 class="mb-0">Site Backlinks count</h5>
+                                </div>
+                            </div>
+                            <div id="collapseTwentyFive" class="collapse" aria-labelledby="headingTwentyFive"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>Try to get more backlinks everyday, more backlinks means better ranking
+                                        and more traffic which leads to more income.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwentySix">
+                                <span>26.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseTwentySix" aria-expanded="true"
+                                    aria-controls="collapseTwentySix">
+                                    <h5 class="mb-0">Local Search Engine Optimization</h5>
+                                </div>
+                            </div>
+                            <div id="collapseTwentySix" class="collapse" aria-labelledby="headingTwentySix"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>If your business is local then Local search engine optimization can help
+                                        you a lot. Submitting in local directories and
+                                        search engine apps will increase your chances to appear more in a local
+                                        search.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwentySeven">
+                                <span>27.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseTwentySeven" aria-expanded="true"
+                                    aria-controls="collapseTwentySeven">
+                                    <h5 class="mb-0">Optimization for Multiple Browsers</h5>
+                                </div>
+                            </div>
+                            <div id="collapseTwentySeven" class="collapse" aria-labelledby="headingTwentySeven"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>Making a website look good in all of the web browser is necessary because
+                                        you don’t want to lose your user just because
+                                        your layout does not open correctly in some browser.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwentyEight">
+                                <span>28.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseTwentyEight" aria-expanded="true"
+                                    aria-controls="collapseTwentyEight">
+                                    <h5 class="mb-0">Content Optimization</h5>
+                                </div>
+                            </div>
+                            <div id="collapseTwentyEight" class="collapse" aria-labelledby="headingTwentyEight"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>Creating website pages and optimizing content based on the keywords and
+                                        services.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwentyNine">
+                                <span>29.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseTwentyNine" aria-expanded="true"
+                                    aria-controls="collapseTwentyNine">
+                                    <h5 class="mb-0">Baseline Keyword Ranking Report</h5>
+                                </div>
+                            </div>
+                            <div id="collapseTwentyNine" class="collapse" aria-labelledby="headingTwentyNine"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>We will send your current Keyword Status report on Google, Yahoo and
+                                        Bing. After that you will get weekly ranking report
+                                        with comparison of success in keyword position.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThirty">
+                                <span>30.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseThirty" aria-expanded="true" aria-controls="collapseThirty">
+                                    <h5 class="mb-0">Creation of Social Media Accounts</h5>
+                                </div>
+                            </div>
+                            <div id="collapseThirty" class="collapse" aria-labelledby="headingThirty"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>We will create social media accounts on major social media websites like
+                                        facebook, linkedin, twitter, pinterest etc to
+                                        drive relevant traffic to your website.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThirtyOne">
+                                <span>31.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseThirtyOne" aria-expanded="true"
+                                    aria-controls="collapseThirtyOne">
+                                    <h5 class="mb-0">Social Bookmarking</h5>
+                                </div>
+                            </div>
+                            <div id="collapseThirtyOne" class="collapse" aria-labelledby="headingThirtyOne"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>Social Bookmarking is a method for Internet users to organize, store,
+                                        manage and search for bookmarks online. It is one of the good
+                                        tools to create additional inbound links to your content, which is
+                                        always a good way to gain the attention of search
+                                        engine bots and to increase your page ranking.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThirtyTwo">
+                                <span>32.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseThirtyTwo" aria-expanded="true"
+                                    aria-controls="collapseThirtyTwo">
+                                    <h5 class="mb-0">Image Submission</h5>
+                                </div>
+                            </div>
+                            <div id="collapseThirtyTwo" class="collapse" aria-labelledby="headingThirtyTwo"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>We will submit various images relevant to keyword with short description
+                                        in various Image Submission websites that would
+                                        be beneficial for your website.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThirtyThree">
+                                <span>33.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseThirtyThree" aria-expanded="true"
+                                    aria-controls="collapseThirtyThree">
+                                    <h5 class="mb-0">Blog Commenting</h5>
+                                </div>
+                            </div>
+                            <div id="collapseThirtyThree" class="collapse" aria-labelledby="headingThirtyThree"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>Blog Commenting is considered as one of the easiest ways to get free one
+                                        way links to your website. It helps to increase
+                                        your Google position within a short period even for highly competitive
+                                        keywords.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThirtyFour">
+                                <span>34.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseThirtyFour" aria-expanded="true"
+                                    aria-controls="collapseThirtyFour">
+                                    <h5 class="mb-0">Social Media Optimization</h5>
+                                </div>
+                            </div>
+                            <div id="collapseThirtyFour" class="collapse" aria-labelledby="headingThirtyFour"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>Every day work on Facebook, Twitter, Pinterest, Google+ to make more and
+                                        more people in network. I will do updations in
+                                        your accounts.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThirtyFive">
+                                <span>35.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseThirtyFive" aria-expanded="true"
+                                    aria-controls="collapseThirtyFive">
+                                    <h5 class="mb-0">Blog Creation</h5>
+                                </div>
+                            </div>
+                            <div id="collapseThirtyFive" class="collapse" aria-labelledby="headingThirtyFive"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>We will create web 2.0 to create link juice for your website.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThirtySix">
+                                <span>36.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseThirtySix" aria-expanded="true"
+                                    aria-controls="collapseThirtySix">
+                                    <h5 class="mb-0">Busniess Directory listing</h5>
+                                </div>
+                            </div>
+                            <div id="collapseThirtySix" class="collapse" aria-labelledby="headingThirtySix"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>Listing your business/website in 10 directories like yelp and yellow
+                                        pages.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThirtyNine">
+                                <span>37.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseThirtyNine" aria-expanded="true"
+                                    aria-controls="collapseThirtyNine">
+                                    <h5 class="mb-0">Product Submission</h5>
+                                </div>
+                            </div>
+                            <div id="collapseThirtyNine" class="collapse" aria-labelledby="headingThirtyNine"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>In <strong>PRODUCT SUBMISSION</strong> we have described all important
+                                        product information like features, prices, etc. Product Submission
+                                        of data feeds gives you time-sensitive. If you have a new product that
+                                        you would like us to carry in our stores, please
+                                        follow these steps to make the process efficient, enjoyable and speedy.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThirtyEight">
+                                <span>38.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseThirtyEight" aria-expanded="true"
+                                    aria-controls="collapseThirtyEight">
+                                    <h5 class="mb-0">Profile Creation</h5>
+                                </div>
+                            </div>
+                            <div id="collapseThirtyEight" class="collapse" aria-labelledby="headingThirtyEight"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>It is a best way for business promotion on the web. On the profile
+                                        creation website you put your business details or
+                                        services. So business visitors are increasing and you will get business
+                                        projects. Profile creation is one link building
+                                        technique in which we create profile in the different platform's
+                                        website, such as forum sites, social networking, web
+                                        2.0 websites etc and give our business details in it and also give our
+                                        website link to that profile page from which we
+                                        can get back links to our website. Profile creation is an effective
+                                        technique to get better backlinks.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingForty">
+                                <span>39.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseForty" aria-expanded="true" aria-controls="collapseForty">
+                                    <h5 class="mb-0">Competitors Backlinks</h5>
+                                </div>
+                            </div>
+                            <div id="collapseForty" class="collapse" aria-labelledby="headingForty"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>We will check your top competitors website backlinks and build link on
+                                        that backlinks.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFortyOne">
+                                <span>40.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseFortyOne" aria-expanded="true"
+                                    aria-controls="collapseFortyOne">
+                                    <h5 class="mb-0">Video Marketing linking</h5>
+                                </div>
+                            </div>
+                            <div id="collapseFortyOne" class="collapse" aria-labelledby="headingFortyOne"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>We will make backlinks through video marketing. Search Engine Submission
+                                        refers to the act of getting your website
+                                        listed with search engines. Another term for this is search engine
+                                        registration which helps us to receive massive
+                                        targeted traffic to your website.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFortyThree">
+                                <span>41.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseFortyThree" aria-expanded="true"
+                                    aria-controls="collapseFortyThree">
+                                    <h5 class="mb-0">PPT (Power Point Presentation)</h5>
+                                </div>
+                            </div>
+                            <div id="collapseFortyThree" class="collapse" aria-labelledby="headingFortyThree"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>We will submit PPT on top sites in good one-way backlinking technique.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFortyFour">
+                                <span>42.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseFortyFour" aria-expanded="true"
+                                    aria-controls="collapseFortyFour">
+                                    <h5 class="mb-0">Info Graphic</h5>
+                                </div>
+                            </div>
+                            <div id="collapseFortyFour" class="collapse" aria-labelledby="headingFortyFour"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>Infographic describe your product completely in a single image. In which
+                                        you can add complete information about your
+                                        product or a company. People want information quickly and that's why
+                                        infographics are so great. There is no better way
+                                        to explain how infographics are an effective marketing tool than in the
+                                        form of an easy to follow infographic.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFortyFive">
+                                <span>43.</span>
+                                <div class="btn d-flex collapsed" role="tablist" data-toggle="collapse"
+                                    data-target="#collapseFortyFive" aria-expanded="true"
+                                    aria-controls="collapseFortyFive">
+                                    <h5 class="mb-0">Web2.0</h5>
+                                </div>
+                            </div>
+                            <div id="collapseFortyFive" class="collapse" aria-labelledby="headingFortyFive"
+                                data-parent="#accordion1">
+                                <div class="card-body">
+                                    <p>Web 2.0 are sites which allow you to create your own page with a unique
+                                        url. You may publish information and point links
+                                        from it to your website. Web 2.0 sites are considered as quality
+                                        websites and building pages and publishing content
+                                        through web 2.0 sites would help in link building and achieving top
+                                        results in serps.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /row  -->
+        </div>
+        <!-- container end -->
+    </section>
+
+    <!---======Text Two Section===========-->
+    <section id="affiliate" class="about burger gradient-bg text-white" style="padding-bottom: 4em;">
+        <div class="container about-inner">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 mb-5">
+                    <h3 class="section-heading">SEO Packages That Grow Businesses</h3>
+                    <p>SEO is very important factor that pushes an online business to grow much and much bigger. It not
+                        only builds Search Engines trust for your business; it also develops customers loyalty to your
+                        Brand or business. As, Search engine refer visitors towards your business, so it causes a
+                        customer belief on your product and brand. SEO has an ability to return back 5 to 6 times more
+                        than you have spent on SEO of your business.</p>
+                    <p><strong>UpSEO</strong> is Just offering some <strong>SEO packages</strong> that are designed by
+                        keeping in mind
+                        the level of
+                        different businesses. You can choose a package desired for your business. Once you have
+                        purchased one of our packages, we will be with you to assure you that the money you have paid
+                        for our package is in secure hands and soon will results 5 to 6 times more. We care about our
+                        client, once you have engaged yourself with us, we will guarantee the growth of your business.
+                    </p>
+                    <p>Sometime clients think that they have some instructions for working team. Don’t worry we care for
+                        you feelings. You can call us at our number given below.</p>
+                </div>
+
+                <div class="col-md-12 col-sm-12 mb-5">
+                    <h3 class="section-heading">SEO services packages from UpSEO</h3>
+                    <p>Overall Purpose of marketing a business is to make people know about your business. Once you have
+                        ranked your business for your target audience and customers, your business growth curve will be
+                        in sharp growth. Ranking on First page or first number is not an easy job.</p>
+                    <p>When you try to hire some good agency for your business, you can’t believe on all local agencies.
+                        WebFX is best for you. why? Because we firstly analyze your business and decide what specific
+                        audience can be targeted for your business. Target audience generates sales to your products.
+                    </p>
+                    <p>When you talk about target audience, you need to judge to activities of your audience by
+                        research. For this purpose, keyword research helps us to generate more and relevant traffic for
+                        any business. Our <strong>UpSEO</strong> packages provide you all you need for your product
+                        sales.</p>
+
+                    <h5 class="mt-4 mb-3">Here are the benefits you can expect from UpSEO.</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 pl-4"><strong>Keyword Research:</strong> We research high CPC and viral keywords
+                            for
+                            our clients.
+                            We assure our keyword selection must match your brand/ business requirements. We only choose
+                            low competition, highly rank able and traffic catching keywords.</li>
+                        <li class="mb-3 pl-4"><strong>Google Analytics Set-up:</strong> The main focus of
+                            <strong>UpSEO</strong> is to
+                            win the
+                            client’s
+                            trust. So, we install and setup Google analytics for your website. So that you can
+                            continuously analyze how we are performing.</li>
+                        <li class="mb-3 pl-4"><strong>Site Map Submission:</strong> Search Engines start indexing your
+                            website when you
+                            submit your website sitemap on search engine sitemap tools. It is very important for SEO. It
+                            is your online presence verification for search engines.</li>
+                        <li class="pl-4"><strong>Ongoing quarterly reports:</strong> Our team wants to keep you in the
+                            loop. That’s
+                            why we offer quarterly reporting with our monthly SEO packages. You’ll get information on
+                            keyword reporting, monthly return on investment (ROI), traffic reporting, goal reporting,
+                            and more.</li>
+                    </ul>
+                    <p>As we know your money is important for you. That’s why we try our best to return your all of your
+                        money. So, we design our seo monthly packages in a way that it causes more than expected
+                        results. Ranking of your website is our core purpose.</p>
+                </div>
+                <div class="col-md-12 col-sm-12 mb-5">
+                    <h3 class="section-heading">Pricing based on knowledge and experience</h3>
+                    <p>It is our duty to make our Pricing packages visible to our clients. We think it is client’s basic
+                        right to know about where their investment is going. We don’t keep our prices secret. Our SEO
+                        prices are calculated based on our Internet marketing services experiences.</p>
+                    <p>We don’t make our any working plan secret for our clients like other agencies.
+                        <strong>UpSEO</strong> believe on
+                        ROI principle. We care about our clients to learn how our agency and our team work. If you are
+                        interested to know, get a quote for free by contacting us.</p>
+                </div>
+
+                <div class="col-md-12 col-sm-12 mb-5">
+                    <h3 class="section-heading">Why invest in an SEO package?</h3>
+                    <p>It is a question that why a business owner should invest in an SEO Package. You must know that
+                        93% traffic use search engines to find anything. If you want customers trust on your brand and
+                        more sales for your product. You must need to Optimize your website for Search Engines. SEO is
+                        the only way to get a bulk of traffic from search engines. You can get recommendations from
+                        other experts, but here we are explaining five important reasons for SEO packages.</p>
+
+                    <div class="pl-4 mb-4">
+                        <h5 class="mt-4 mb-2">1. You gain your audience’s trust and authority</h5>
+                        <p>Every user trust Google and other search engines that they will show only best and exact
+                            results
+                            for their traffic. When Google ranks a website on first page, it means that website has
+                            perfect
+                            content for the search query. It builds user trust to your website. </p>
+                        <p>Once you succeed to win user’s trust and authority, you will get your business on it is peak.
+                            To
+                            get your business known to everyone with full user trust you can choose <strong>UpSEO
+                                packages</strong>.</p>
+
+                        <h5 class="mt-4 mb-2">2. It’s cost-effective</h5>
+                        <p>According to a study, 71 percent of searches result in a page-one organic click. This means
+                            that
+                            it's extremely important to have your content showing up on page one of Google - and that
+                            goal
+                            is nearly unattainable without an SEO campaign.</p>
+                        <p>SEO is an investment, but it drives valuable results for your business. Depending on your
+                            monthly
+                            SEO package, it can cost anywhere from $800 - $2,500 per month.</p>
+                        <p>SEO brings more traffic towards your website. It means there are more leads for your product.
+                            Once you have started generating leads, you will not bother to pay for an SEO Package.
+                            <strong>UpSEO</strong>
+                            assure more leads for your product.</p>
+                        <p>Let’s say you sell expensive tool kits and your SEO plan is $1,300 a month. Each kit sells
+                            for
+                            $100. You would only need to sell 13 kits, attract 13 leads, to break even on your
+                            investment.
+                        </p>
+                        <p>SEO generates lot of leads towards your product. It is cost effective method. You don’t need
+                            to
+                            pay for leads when you have ranked your site on first page. It does not mean that PPC is not
+                            cost effective, it is but SEO is more.</p>
+
+                        <h5 class="mt-4 mb-2">3. It provides substantial ROI</h5>
+                        <p>When you market your website, it means that you need ROI. We design our SEO Packages in way
+                            that
+                            causes to generate more and more sales to your business product. We make sure our clients
+                            that
+                            we are generating ROI for them during ranking. Once you have ranked, it generates more then
+                            you’re thinking.</p>
+                        <p>Optimizing your site for search engine is a basic need of your business progress. It builds
+                            user’s trust and your website’s authority. By authority your business becomes famous and
+                            known
+                            to your target audience. The main goal of marketing is to be known to your target audience.
+                            Once
+                            you have done it, your speed of progress will be in rapid growth.</p>
+                        <p>Search engines, more often than not, are the starting places for a product or service search,
+                            and
+                            they're becoming more and more popular with each passing day. In fact, more than half of all
+                            Internet users search at least once a day. Missing out on this market can potentially be a
+                            huge
+                            loss for your company.</p>
+                        <p>At <strong>UpSEO</strong>, we'll work with you to turn that loss into a major gain by
+                            implementing a custom SEO campaign with a search engine optimization packaged tailored to
+                            your
+                            business.</p>
+
+                        <h5 class="mt-4 mb-2">4. It drives local traffic</h5>
+                        <p>Not all business you do will be online. Some people prefer to go to a physical location to
+                            buy a
+                            product. SEO helps you reign in these local leads and get them to visit your business. A big
+                            part of SEO is optimizing for keywords. Keywords trigger your website to appear in the
+                            search
+                            results.</p>
+                        <p>By optimizing for local SEO, you help your website appear in more relevant search results.
+                            Local
+                            keywords typically contain phrases like “near me” and “in [city].” These are phrases people
+                            use
+                            when they’re looking for local businesses.</p>
+                        <p>SEO helps you optimize for these keywords. You can integrate these keywords on your site to
+                            help
+                            your business rank better for local search queries. This allows you to drive more local
+                            traffic
+                            for your business.
+                            <strong>UpSEO</strong> has ability to rank your site on local keywords. The only way is to
+                            choose our package and get your business like a fast-moving train.</p>
+
+                        <h5 class="mt-4 mb-2">5. SEO works</h5>
+                        <p>Perhaps the most important attribute of SEO is that it works. It grows your business up to
+                            its
+                            peak level. It drives as much as traffic needed by your plan. It builds your business trust,
+                            authority and rankings. All these factors generate conversions. What you have to do is to
+                            buy a
+                            smart SEO Package for your business.</p>
+
+                        <h5 class="mt-4 mb-2">6. Your competitors are doing it</h5>
+                        <p>In a business it is a huge challenge for an owner to compete his competitors. It is not a
+                            child’s
+                            play; all are trying their best to be number 1 and leave other behind. In online marketplace
+                            the
+                            important thing is, the more traffic you have the more sales are possible.</p>
+                        <p>In a business it is a huge challenge for an owner to compete his competitors. It is not a
+                            child’s
+                            play; all are trying their best to be number 1 and leave other behind. In online marketplace
+                            the
+                            important thing is, the more traffic you have the more sales are possible.</p>
+                    </div>
+                    <p>By investing in a monthly SEO package, you will drive better results with your campaign. You’ll
+                        remain in competition with your competitors and work to outrank them.</p>
+                </div>
+
+                <div class="col-md-12 col-sm-12 mb-5">
+                    <h3 class="section-heading">How do I determine the best SEO package?</h3>
+                    <p>When you are looking to buy SEO for your website. It is very difficult to decide which <a
+                            href="https://chandiapk.com/which-type-of-digital-marketing-is-suitable-for-e-commerce-business/"
+                            target="_blank" rel="nofollow" style="color: #f0810f !important;">package of SEO is suitable
+                            for your business</a>. You don’t need to
+                        worry about this, we have listed some basic features, they help you to choose best and best ever
+                        package.</p>
+                    <p>You can also contact us for more info.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="burger contact" id="contact">
+        <div class="container">
+            <!-- container-start -->
+
+
+            <div class="row mt-4 align-items-center">
+                <div class="col-lg-6 col-sm-6 border-right mb-md-0 mb-4">
+                    <h5 class="small-heading">Contact</h5>
+                    <h2 class="section-heading">We are happy to help you</h2>
+                    <form id="ajax-contact" method="post" action="contact-mail.php" class="position-relative pr-md-5">
+                        <div id="form-messages" class="notification contact"></div>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="full_name"
+                                placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" rows="3" name="message"
+                                placeholder="What whould you like to tell us"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-alpha mt-2">Send Message <i
+                                class="fa fa-angle-right ml-3"></i></button>
+                    </form>
+                </div>
+                <!---/col-->
+                <div class="col-lg-6 col-sm-6 contact-info">
+                    <div class="h-100 pl-md-5">
+                        <div class="d-flex flex-column justify-content-end">
+                            <img src="images/logo-wide.png" class="img-fluid contact-img">
+                            <h5 class="card-title">UpSEO LTD</h5>
+                            <div class="media mt-3">
+                                <i class="fa fa-map-marker mr-3"></i>
+                                <div class="media-body">
+                                    56 Tsun Yip Street, Kowloon<br> Hong Kong 999 077
+                                </div>
+                            </div>
+                            <div class="media mt-3">
+                                <i class="fa fa-envelope mr-3"></i>
+                                <div class="media-body">
+                                    hello@upseo.io
+                                </div>
+                            </div>
+                            <!--
+							<div class="media mt-3">
+                              <i class="fa fa-phone mr-3"></i>
+                              <div class="media-body">                                
+                                 +78 333 444 3322
+                              </div>
+                            </div>
+							-->
+                            <div class="media mt-3">
+                                <i class="fab fa-skype mr-3"></i>
+                                <div class="media-body">
+                                    helloUpseo
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!---/col-->
+            </div>
+            <!---/row-->
+        </div>
+        <!-- container end -->
+    </section>
+
+
+    <footer class="pb-2 footer" id="footer">
+        <div class="container">
+            <!-- container-start -->
+            <div class="row text-white text-center burger newsletter-row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="newsletter mb-5">
+                        <h2 class="mb-3">Don't miss out, stay updated!</h2>
+                        <form class="form form-newsletter input-group w-50 mx-auto position-relative" method="post"
+                            action="newsletter.php" id="subscribe_now">
+                            <div id="mail-messages" class="notification subscribe"></div>
+                            <input class="form-control mr-md-2 mr-1" placeholder="Enter@email.com" type="email"
+                                name="subscribe_email" id="subscribe_email">
+                            <button type="submit" class="input-group-append btn btn-alpha " name="button">Subscribe <i
+                                    class="fa fa-angle-right ml-3"></i></button>
+                        </form>
+                    </div>
+                    <div class="footer-social">
+                        <h5 class="small-heading mb-3">Lets Connect</h5>
+                        <a href="#" class=""><i class="fab fa-twitter mr-2"></i> </a>
+                        <a href="https://www.facebook.com/Upseo-IO-2396548163771027/" class=""><i
+                                class="fab fa-facebook-f mr-2"></i> </a>
+                        <a href="https://www.linkedin.com/company/35453110" class=""><i
+                                class="fab fa-linkedin-in mr-2"></i> </a>
+                    </div>
+                </div>
+                <!---/column-->
+            </div>
+            <!---/row-->
+
+            <!---/row-->
+        </div>
+        <!---/container-->
+    </footer>
+
+
+
+    <section id="footer-links" class="about burger text-white footer-links" style="padding-bottom: 4em;">
+        <!---======About start===========-->
+        <div class="container about-inner">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 mb-5 mb-md-0">
+                    <h3 class="section-heading">UpSEO</h3>
+                    <p class="lead">56 Tsun Yip Street, Kowloon, Hong Kong 999 077</p>
+                    <p>Multiply your monthly passive income by becoming official UpSEO reseller. You will earn from 40%
+                        to 50% commission fee for each purchase made by your referred users. All stats are available in
+                        the Reseller Dashboard, which makes tracking your earnings an easy and pleasant task.</p>
+                    <a href="https://www.facebook.com/Upseo-IO-2396548163771027/"><i
+                            class="fab fa-3x fa-facebook mr-3"></i></a> <a
+                        href="https://www.linkedin.com/company/35453110"><i class="fab fa-3x fa-linkedin"></i></a>
+                </div>
+                <!---/col-->
+                <div class="col-md-6 col-sm-12">
+                    <h3 class="section-heading">More Links</h3>
+                    <div class="row">
+                        <div class="col">
+                            <ul class="foot-links">
+                                <li><a href="">Home</a></li>
+                                <li><a href="">About</a></li>
+                                <li><a href="">Features</a></li>
+                                <li><a href="">Services</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <ul class="foot-links">
+                                <li><a href="pp.html">Privacy Policy</a></li>
+                                <li><a href="tc.html">Terms & Conditions</a></li>
+                                <li><a href="">Pricing</a></li>
+                                <li><a href="">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <img src="images/trust-badges.png" alt="Secure Checkout" class="img-fluid" style="margin-top: 15px">
+                    <!--<img src="images/analytics.svg" class="img-fluid w-40" alt="image">-->
+                </div>
+                <!--
+				<div class="col-md-4 col-sm-12">
+					<!--<img src="images/bird.png" alt="logo image" class="img-fluid">
+				</div>
+				-->
+                <!---/col-->
+            </div>
+            <div class="row text-white text-center mt-3">
+                <div class="copyright col-lg-12">
+                    <p class="">All rights reserved <a href="https://www.upseo.io/" target="_blank"
+                            class="alt-color">UpSEO</a> Copyright © 2019</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="js/jquery3.2.1.min.js"></script>
+    <!-- JQUERY LIBRARY -->
+    <script src="js/particles.min.js"></script>
+    <!-- Particles JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/main.js"></script>
+    <!-- Main JS -->
+    <script src="js/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="js/jquery-jvectormap-world-mill.js"></script>
+    <script>
+        $(function () {
+            $('#world-map').vectorMap({
+                map: 'world_mill',
+
+                backgroundColor: '#fff',
+                regionsSelectable: true,
+
+                selectedRegions: ['DE', 'FR', 'US', 'GB', 'IN', 'BR'],
+
+                onRegionTipShow: function (event, label, code) {
+
+                    if (label.html() == "Argentina") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: 100</p></div>');
+                    } else if (label.html() == "Australia") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsAU; ?></p></div>');
+                    } else if (label.html() == "Belgium") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsBE; ?></p></div>');
+                    } else if (label.html() == "Brazil") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsBR; ?></p></div>');
+                    } else if (label.html() == "Canada") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsCA; ?></p></div>');
+                    } else if (label.html() == "China") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsCH; ?></p></div>');
+                    } else if (label.html() == "Colombia") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsCL; ?></p></div>');
+                    } else if (label.html() == "Czech Rep.") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsCZ; ?></p></div>');
+                    } else if (label.html() == "Finland") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsFI; ?></p></div>');
+                    } else if (label.html() == "France") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsFR; ?></p></div>');
+                    } else if (label.html() == "Germany") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsDE; ?></p></div>');
+                    } else if (label.html() == "Hong Kong") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsHK; ?></p></div>');
+                    } else if (label.html() == "India") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsIN; ?></p></div>');
+                    } else if (label.html() == "Indonesia") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsID; ?></p></div>');
+                    } else if (label.html() == "Israel") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsIL; ?></p></div>');
+                    } else if (label.html() == "Iran") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsIR; ?></p></div>');
+                    } else if (label.html() == "Italy") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsIT; ?></p></div>');
+                    } else if (label.html() == "Japan") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsJP; ?></p></div>');
+                    } else if (label.html() == "Mexico") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsMX; ?></p></div>');
+                    } else if (label.html() == "Netherlands") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsNL; ?></p></div>');
+                    } else if (label.html() == "Norway") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsNO; ?></p></div>');
+                    } else if (label.html() == "Pakistan") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsPK; ?></p></div>');
+                    } else if (label.html() == "Poland") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsPL; ?></p></div>');
+                    } else if (label.html() == "Romania") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsRO; ?></p></div>');
+                    } else if (label.html() == "Russia") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsRU; ?></p></div>');
+                    } else if (label.html() == "South Africa") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsZA; ?></p></div>');
+                    } else if (label.html() == "Spain") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsES; ?></p></div>');
+                    } else if (label.html() == "Switzerland") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsCH; ?></p></div>');
+                    } else if (label.html() == "Taiwan") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsTW; ?></p></div>');
+                    } else if (label.html() == "Thailand") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsTH; ?></p></div>');
+                    } else if (label.html() == "Turkey") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsTR; ?></p></div>');
+                    } else if (label.html() == "United Kingdom") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsUK; ?></p></div>');
+                    } else if (label.html() == "Ukraine") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsUA; ?></p></div>');
+                    } else if (label.html() == "United States") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsUS; ?></p></div>');
+                    } else if (label.html() == "Venezuela") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsVE; ?></p></div>');
+                    } else {
+                        label.html('');
+                    }
+
+                },
+
+                regionStyle: {
+                    initial: {
+                        fill: '#ddd'
+                    },
+                    hover: {
+                        fill: '#aaa',
+                        cursor: 'pointer'
+                    },
+                    selected: {
+                        fill: '#aaa'
+                    }
+                },
+
+            });
+        });
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/5caacec953f1e453fb8c97a4/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <!-- Load Stripe.js on your website. -->
+    <script src="https://js.stripe.com/v3"></script>
+
+    <script>
+        var stripe = Stripe('pk_live_FvlYHgodG4fy0NtzvKHg1BpS');
+
+        // checkout for Entry Plan
+        var checkoutButtonEntry = document.getElementById('checkout-button-plan_EyB8t6WyZL6Xvc');
+        checkoutButtonEntry.addEventListener('click', function () {
+            stripe.redirectToCheckout({
+                items: [{ plan: 'plan_EyB8t6WyZL6Xvc', quantity: 1 }],
+                successUrl: 'https://upseo.io/stripesuccess.html',
+                cancelUrl: 'https://upseo.io/stripecanceled.html',
+                clientReferenceId: '<?php echo $refCookie; ?>',
+            })
+                .then(function (result) {
+                    if (result.error) {
+                        var displayError = document.getElementById('stripe-error-message');
+                        displayError.textContent = result.error.message;
+                    }
+                });
+        });
+
+        // checkout for Advanced Plan
+        var checkoutButtonAdvanced = document.getElementById('checkout-button-plan_EyB9JbWHpAr9y5');
+        checkoutButtonAdvanced.addEventListener('click', function () {
+            stripe.redirectToCheckout({
+                items: [{ plan: 'plan_EyB9JbWHpAr9y5', quantity: 1 }],
+                successUrl: 'https://upseo.io/stripesuccess.html',
+                cancelUrl: 'https://upseo.io/stripecanceled.html',
+                clientReferenceId: '<?php echo $refCookie; ?>',
+            })
+                .then(function (result) {
+                    if (result.error) {
+                        var displayError = document.getElementById('error-message');
+                        displayError.textContent = result.error.message;
+                    }
+                });
+        });
+
+        // checkout for Business Plan
+        var checkoutButtonBusiness = document.getElementById('checkout-button-plan_EyBBOj3AlDfCIv');
+        checkoutButtonBusiness.addEventListener('click', function () {
+            stripe.redirectToCheckout({
+                items: [{ plan: 'plan_EyBBOj3AlDfCIv', quantity: 1 }],
+                successUrl: 'https://upseo.io/stripesuccess.html',
+                cancelUrl: 'https://upseo.io/stripecanceled.html',
+                clientReferenceId: '<?php echo $refCookie; ?>',
+            })
+                .then(function (result) {
+                    if (result.error) {
+                        var displayError = document.getElementById('error-message');
+                        displayError.textContent = result.error.message;
+                    }
+                });
+        });
+
+        // checkout for Corporate Plan
+        var checkoutButtonCorporate = document.getElementById('checkout-button-plan_EyBBlS89XpQViT');
+        checkoutButtonCorporate.addEventListener('click', function () {
+            stripe.redirectToCheckout({
+                items: [{ plan: 'plan_EyBBlS89XpQViT', quantity: 1 }],
+                successUrl: 'https://upseo.io/stripesuccess.html',
+                cancelUrl: 'https://upseo.io/stripecanceled.html',
+                clientReferenceId: '<?php echo $refCookie; ?>',
+
+            })
+                .then(function (result) {
+                    if (result.error) {
+                        var displayError = document.getElementById('error-message');
+                        displayError.textContent = result.error.message;
+                    }
+                });
+        });
+
+
+    </script>
+
+</body>
+
+</html>

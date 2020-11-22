@@ -1,0 +1,136 @@
+.nivo-caption a {
+     display: block !important; 
+    margin: auto;
+    text-align: center;
+    color: #fff;
+    border-color: #03A9F4;
+}
+.nivo-caption::after {
+  background: #444 none repeat scroll 0 0;
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.layer-1-1 h1 {
+  color: #fff;
+  font-family: lato;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.layer-1-2 h2 {
+  color: #fff;
+  font-size: 44px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.layer-1-3 p.title3 {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  padding: 0;
+}
+.layer-1-4 {
+  display: block;
+  margin-top: 35px;
+}
+.layer-1-4 a.ready-btn {
+  border: 1px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 24px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.4s ease 0s;
+  z-index: 222;
+}
+.layer-1-4 a.ready-btn:hover{
+    color: #fff;
+    background: #F15B22;
+    border: 1px solid #F15B22;
+}
+.slider-area{
+    overflow: hidden;
+}
+.slider-content {
+  display: block;
+  padding: 155px 0;
+  z-index: 1;
+}
+.nivo-controlNav {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: 9;
+}
+.nivo-directionNav {
+  display: none;
+}
+.nivo-controlNav a {
+  background: transparent none repeat scroll 0 0;
+  border: 3px solid #acacac;
+  box-shadow: none;
+  display: inline-block;
+  font-size: 0;
+  height: 16px;
+  margin: 5px 7px;
+  opacity: 1;
+  text-align: center;
+  text-indent: inherit;
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  vertical-align: top;
+  width: 16px;
+}
+.nivo-controlNav a:hover, .nivo-controlNav a.active {
+  background: #fff none repeat scroll 0 0;
+  border-color: #03A9F4;
+}
+ .nivo-controlNav a:hover, .nivo-controlNav a.active {
+  background: #fff none repeat scroll 0 0;
+  border-color: #03A9F4;
+}
+
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1169px) {
+.slider-content {
+  padding: 80px 0 90px;
+}    
+    
+    
+    
+}
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+    
+.slider-content, .slider-content-4 {
+  padding: 30px 10px !important;
+}
+.layer-1-1 h1 {
+  font-size: 20px;
+}
+.layer-1-2 {
+	margin: 0;
+}
+.layer-1-2 h2 {
+  font-size: 36px;
+}
+.layer-1-4 {
+  margin-top: 28px;
+}
+    
+    
+    
+}

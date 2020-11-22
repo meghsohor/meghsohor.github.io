@@ -1,0 +1,113 @@
+/*-----------------------------------------------
+   General Styling
+-----------------------------------------------*/
+*,
+::after,
+::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+* {
+  outline: 0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #333333;
+  background-color: #fff;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.banner {
+  width: 300px;
+  height: 250px;
+  position: relative;
+  z-index: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  overflow: hidden;
+}
+
+.banner canvas {
+  z-index: 2;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+}
+
+.counter {
+  color: #ed0000;
+  position: absolute;
+  z-index: 1;
+  font-size: 83px;
+  font-weight: 800;
+  top: 20%;
+  left: 15%;
+  display: none;
+}
+
+.counter .deg {
+  margin-left: -20px;
+}
+
+.banner-text {
+  position: absolute;
+  z-index: 1;
+  bottom: 6%;
+  left: 7%;
+  display: none;
+}
+
+#snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  display: none;
+}
+
+.button {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 3;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+  -webkit-transition: -webkit-filter 2s ease-in-out;
+  transition: -webkit-filter 2s ease-in-out;
+  transition: filter 2s ease-in-out;
+  transition: filter 2s ease-in-out, -webkit-filter 2s ease-in-out;
+}
+/*# sourceMappingURL=style.css.map */

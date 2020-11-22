@@ -1,0 +1,631 @@
+<!-- <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+if(!isset($_COOKIE['trafficbotrefcookie'])){
+    if(isset($_GET['ref']) && !empty($_GET['ref'])) {
+        $ref = trim(($_GET['ref']));
+        setcookie('trafficbotrefcookie', $ref, time() + 31536000);
+		if (!isset($_COOKIE['trafficbotrefcookie'])) $_COOKIE['trafficbotrefcookie'] = $ref;
+    } else {
+        setcookie('trafficbotrefcookie', '111', time() + 31536000);
+		if (!isset($_COOKIE['trafficbotrefcookie'])) $_COOKIE['trafficbotrefcookie'] = '111';
+    }
+}
+$refCookie = $_COOKIE['trafficbotrefcookie'];
+
+include("db.php");
+$query = "SELECT * FROM `mapcountries` ORDER BY id DESC LIMIT 1";
+$result = $mysqli->query($query);
+while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+    
+	$totalHits = number_format($row["total_hits"]);
+	$customers = number_format($row["customers"]);
+	$websites = number_format($row["websites"]);
+	
+	$jsonHits = json_decode( $row["json_vals"]);
+
+	$hitsAR = number_format($jsonHits->AR);
+	$hitsAU = number_format($jsonHits->AU);
+	$hitsBE = number_format($jsonHits->BR);
+	$hitsBR = number_format($jsonHits->BR);
+	$hitsCA = number_format($jsonHits->CA);
+	$hitsCN = number_format($jsonHits->CN);
+	$hitsCL = number_format($jsonHits->CL);
+	$hitsCO = number_format($jsonHits->CO);
+	$hitsCZ = number_format($jsonHits->CZ);
+	$hitsFI = number_format($jsonHits->FI);
+	$hitsFR = number_format($jsonHits->FR);
+	$hitsDE = number_format($jsonHits->DE);
+	$hitsHK = number_format($jsonHits->HK);
+	$hitsIN = number_format($jsonHits->IN);
+	$hitsID = number_format($jsonHits->ID);
+	$hitsIL = number_format($jsonHits->IL);
+	$hitsIR = number_format($jsonHits->IR);
+	$hitsIT = number_format($jsonHits->IT);
+	$hitsJP = number_format($jsonHits->JP);
+	$hitsMX = number_format($jsonHits->MX);
+	$hitsNL = number_format($jsonHits->NL);
+	$hitsNO = number_format($jsonHits->NO);
+	$hitsPK = number_format($jsonHits->PK);
+	$hitsPL = number_format($jsonHits->PL);
+	$hitsRO = number_format($jsonHits->RO);
+	$hitsRU = number_format($jsonHits->RU);
+	$hitsZA = number_format($jsonHits->ZA);
+	$hitsES = number_format($jsonHits->ES);
+	$hitsCH = number_format($jsonHits->CH);
+	$hitsTW = number_format($jsonHits->TW);
+	$hitsTH = number_format($jsonHits->TH);
+	$hitsTR = number_format($jsonHits->TR);
+	$hitsUK = number_format($jsonHits->UK);
+	$hitsUA = number_format($jsonHits->UA);
+	$hitsUS = number_format($jsonHits->US);
+	$hitsVE = number_format($jsonHits->VE);
+}
+//var_dump($jsonHits) . "\n";
+//echo $hitsUS;
+?> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>UpSEO - Logiciel De Référencement Naturel SEO Automatisé</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Obtenez plus de visiteurs sur votre site et décuplez vos conversions. UpSEO est un logiciel qui automatise la croissance de votre réferencement naturel SEO. Essayez le gratuitement">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css"><!-- Main Stylesheet CSS -->
+    <link rel="stylesheet" href="css/jquery-jvectormap-2.0.3.css"><!-- Map CSS -->
+    <link rel="stylesheet" href="css/template-color-4.css" id="dynamic-style"><!-- Color Stylesheet CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="82">
+
+    <div class="site__layer"></div>
+    <nav class="navbar navbar-expand-lg navbar-togglable navbar-dark">
+        <div class="container">
+            <!-- Brand/ logo -->
+            <a class="navbar-brand" href="index.html" onclick="window.scrollTo(0, 0);"><img src="images/logo.svg"
+                    alt="logo image" class="img-fluid" height="35px" width="142px"></a>
+            <!-- Toggler -->
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <!-- Links -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="location.href='affiliate.html';" href="affiliate.html">Affiliate
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="location.href='/blog/';" href="https://upseo.io/blog/">Blog
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="location.href='freetrial.html';" href="freetrial.html">Free Trial
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="location.href='register.html';" href="register.html">Register
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-alpha ml-lg-3 mt-3 mt-lg-0" onclick="location.href='login.html';"
+                            href="/login.html">Log in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="location.href='/fr/index.html';" href="/fr/index.html"><small>FR
+                                <img src="images/menu-flag-fr.png" alt="FR" height="8"></small></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- / .navbar-collapse -->
+        </div>
+        <!-- / .container -->
+    </nav>
+
+
+    <!---======Text Two Section===========-->
+    <section id="affiliate" class="about burger gradient-bg text-white" style="padding-bottom: 4em;">
+        <div class="container about-inner">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 mb-5">
+                    <h1 class="text-center text-uppercase">SEO Form</h1>
+                    <h5 class="font-semi-bold">Our approach is designed specifically to assist your business in
+                        achieving
+                        its maximum potential
+                        online through the utilization of cutting edge technologies and techniques. </h5>
+                    <h5 class="font-semi-bold">Implementation of industry leading strategies in Internet Marketing,
+                        SEO, Website Optimization
+                        and Content Management; we aim to increase your website traffic levels and improve sales
+                        conversion rates, which equals higher profit margins.</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="burger contact" id="contact" style="padding-top: 5rem;">
+        <div class="container">
+            <!-- container-start -->
+
+            <div class="col-lg-10 offset-lg-1 col-sm-12">
+                <h5 class="font-semi-bold mb-5 text-center">Please complete this questionnaire to provide us with the
+                    information we
+                    need to
+                    get started on your company campaign.</h5>
+            </div>
+
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-8 offset-lg-2 col-sm-12">
+                    <form id="ajax-contact" method="post" action="contact-mail.php"
+                        class="seo-form position-relative pr-md-5">
+                        <div id="form-messages" class="notification contact"></div>
+                        <div class="form-group">
+                            <label for="businessName">Name of Business:</label>
+                            <input type="text" class="form-control" id="businessName" name="business_name"
+                                placeholder="Enter your Name of Business">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Contact Name:</label>
+                            <input type="text" class="form-control" id="name" name="full_name"
+                                placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="businessType">Business Industry Type Details:</label>
+                            <textarea class="form-control" name="business_type" id="businessType" rows="2"
+                                placeholder="Enter details of your Business Industry Type"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="businessDetails">Brief Description of your Company/Business:</label>
+                            <textarea class="form-control" name="business_details" id="businessDetails" rows="4"
+                                placeholder="Enter Description of your Company/Business"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Full Address:</label>
+                            <textarea class="form-control" name="address" id="address" rows="4"
+                                placeholder="Enter Your Full Address"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Official Email:</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="Enter your official email id">
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">Telephone:</label>
+                            <input type="tel" class="form-control" id="telephone" name="telephone"
+                                placeholder="Enter your telephone number">
+                        </div>
+                        <div class="container p-0">
+                            <label>Time zone & best time to contact:</label>
+                            <div class="row">
+                                <div class="col-12 col-md-6 form-group">
+                                    <select name="timezone" id="timezone" class="form-control">
+                                        <option selected disabled>Select a Timezone</option>
+                                        <option value="">Timezone 1</option>
+                                        <option value="">Timezone 2</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-6 form-group">
+                                    <input type="tel" class="form-control" id="time" name="time"
+                                        placeholder="Enter time in 24hr format">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container p-0">
+                            <label>Website URL and admin login details:</label>
+                            <div class="row">
+                                <div class="col-12 col-md-6 form-group">
+                                    <input type="url" class="form-control" id="url" name="url" placeholder="Enter URL">
+                                </div>
+                                <div class="col-12 col-md-6 form-group">
+                                    <textarea class="form-control" name="admin_login" id="adminLogin" rows="2"
+                                        placeholder="Enter admin login details"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="mb-4">
+                        <h6 class="small-heading text-center mb-5">Additional Info</h6>
+
+                        <div class="form-group">
+                            <label for="address">1. Top 10 priority keyword search phrases in order of
+                                importance:</label>
+                            <textarea class="form-control" name="priority_keyword" id="priorityKeyword" rows="4"
+                                placeholder="Enter Your Keywords sepereated by comma ' , '"></textarea>
+                        </div>
+                        <div class="form-group pl-4 mb-3">
+                            <label for="address">a. If you are unsure of the best keywords for your business, make a
+                                list of suggested keywords, or let us know if we should prepare a keyword list for
+                                you.</label>
+                            <textarea class="form-control" name="suggested_keyword" id="suggestedKeyword" rows="4"
+                                placeholder="Enter suggested Keywords sepereated by comma ' , '"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">2. What is the geographic target coverage of your market?</label>
+                            <textarea class="form-control" id="coverage" rows="3" name="coverage"
+                                placeholder="Enter the geographic target coverage"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">3. Who are your target customers?</label>
+                            <textarea class="form-control" id="customer" rows="3" name="customer"
+                                placeholder="Enter your target customers"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">4. Name 3 of your nearest and major online competitors (Name, Location,
+                                Website address). <br>
+                                <small>*We will perform analysis of their websites to get an idea of how they are ranked
+                                    by the major search engines, the degree of optimization on their websites, and what
+                                    they are targeting: </small>
+                            </label>
+                            <textarea class="form-control mb-3" id="firstCompetitor" rows="3" name="first_competitor"
+                                placeholder="First Competitor's Name,&#10;Location,&#10;Website"></textarea>
+                            <textarea class="form-control mb-3" id="secondCompetitor" rows="3" name="second_competitor"
+                                placeholder="Second Competitor's Name,&#10;Location,&#10;Website"></textarea>
+                            <textarea class="form-control" id="thirdCompetitor" rows="3" name="third_competitor"
+                                placeholder="Third Competitor's Name,&#10;Location,&#10;Website"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>5. Have you undertaken website search engine optimization in the past?</label>
+                            <label for="blankRadio1">
+                                <input type="radio" name="blankRadio" id="blankRadio1" value="option1">
+                                Yes
+                            </label>
+                            <label class="mb-3" for="blankRadio2">
+                                <input type="radio" name="blankRadio" id="blankRadio2" value="option2">
+                                No
+                            </label>
+
+                            <div class="pl-4">
+                                <label for="previousKeywords">If yes, please provide us with your previously targeted
+                                    keyword information or reports
+                                    (if available).</label>
+                                <textarea class="form-control" id="previousKeywords" rows="3" name="previous_keywords"
+                                    placeholder="Enter your previously targeted keyword"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="gmailAccountInfo">6. Create a new Gmail account to be used for SEO purposes,
+                                setting up the Google Webmaster and Analytics account and provide me the credentials. If
+                                you already have the accounts setup then assign the access on the email that you would
+                                be providing us for SEO purpose.
+                            </label>
+                            <textarea class="form-control mb-3" id="gmailAccountInfo" rows="2" name="gmail_account_info"
+                                placeholder="Gmail ID,&#10;Password"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-alpha mt-2">Send Message <i
+                                class="fa fa-angle-right ml-3"></i></button>
+                    </form>
+                </div>
+            </div>
+            <!---/row-->
+        </div>
+        <!-- container end -->
+    </section>
+
+
+    <footer class="pb-2 footer" id="footer">
+        <div class="container">
+            <!-- container-start -->
+            <div class="row text-white text-center burger newsletter-row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="newsletter mb-5">
+                        <h2 class="mb-3">Don't miss out, stay updated!</h2>
+                        <form class="form form-newsletter input-group w-50 mx-auto position-relative" method="post"
+                            action="newsletter.php" id="subscribe_now">
+                            <div id="mail-messages" class="notification subscribe"></div>
+                            <input class="form-control mr-md-2 mr-1" placeholder="Enter@email.com" type="email"
+                                name="subscribe_email" id="subscribe_email">
+                            <button type="submit" class="input-group-append btn btn-alpha " name="button">Subscribe <i
+                                    class="fa fa-angle-right ml-3"></i></button>
+                        </form>
+                    </div>
+                    <div class="footer-social">
+                        <h5 class="small-heading mb-3">Lets Connect</h5>
+                        <a href="#" class=""><i class="fab fa-twitter mr-2"></i> </a>
+                        <a href="https://www.facebook.com/Upseo-IO-2396548163771027/" class=""><i
+                                class="fab fa-facebook-f mr-2"></i> </a>
+                        <a href="https://www.linkedin.com/company/35453110" class=""><i
+                                class="fab fa-linkedin-in mr-2"></i> </a>
+                    </div>
+                </div>
+                <!---/column-->
+            </div>
+            <!---/row-->
+
+            <!---/row-->
+        </div>
+        <!---/container-->
+    </footer>
+
+
+
+    <section id="footer-links" class="about burger text-white footer-links" style="padding-bottom: 4em;">
+        <!---======About start===========-->
+        <div class="container about-inner">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 mb-5 mb-md-0">
+                    <h3 class="section-heading">UpSEO</h3>
+                    <p class="lead">56 Tsun Yip Street, Kowloon, Hong Kong 999 077</p>
+                    <p>Multiply your monthly passive income by becoming official UpSEO reseller. You will earn from 40%
+                        to 50% commission fee for each purchase made by your referred users. All stats are available in
+                        the Reseller Dashboard, which makes tracking your earnings an easy and pleasant task.</p>
+                    <a href="https://www.facebook.com/Upseo-IO-2396548163771027/"><i
+                            class="fab fa-3x fa-facebook mr-3"></i></a> <a
+                        href="https://www.linkedin.com/company/35453110"><i class="fab fa-3x fa-linkedin"></i></a>
+                </div>
+                <!---/col-->
+                <div class="col-md-6 col-sm-12">
+                    <h3 class="section-heading">More Links</h3>
+                    <div class="row">
+                        <div class="col">
+                            <ul class="foot-links">
+                                <li><a href="">Home</a></li>
+                                <li><a href="">About</a></li>
+                                <li><a href="">Features</a></li>
+                                <li><a href="">Services</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <ul class="foot-links">
+                                <li><a href="pp.html">Privacy Policy</a></li>
+                                <li><a href="tc.html">Terms & Conditions</a></li>
+                                <li><a href="">Pricing</a></li>
+                                <li><a href="">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <img src="images/trust-badges.png" alt="Secure Checkout" class="img-fluid" style="margin-top: 15px">
+                    <!--<img src="images/analytics.svg" class="img-fluid w-40" alt="image">-->
+                </div>
+                <!--
+				<div class="col-md-4 col-sm-12">
+					<!--<img src="images/bird.png" alt="logo image" class="img-fluid">
+				</div>
+				-->
+                <!---/col-->
+            </div>
+            <div class="row text-white text-center mt-3">
+                <div class="copyright col-lg-12">
+                    <p class="">All rights reserved <a href="https://www.upseo.io/" target="_blank"
+                            class="alt-color">UpSEO</a> Copyright © 2019</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="js/jquery3.2.1.min.js"></script>
+    <!-- JQUERY LIBRARY -->
+    <script src="js/particles.min.js"></script>
+    <!-- Particles JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/main.js"></script>
+    <!-- Main JS -->
+    <script src="js/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="js/jquery-jvectormap-world-mill.js"></script>
+    <script>
+        $(function () {
+            $('#world-map').vectorMap({
+                map: 'world_mill',
+
+                backgroundColor: '#fff',
+                regionsSelectable: true,
+
+                selectedRegions: ['DE', 'FR', 'US', 'GB', 'IN', 'BR'],
+
+                onRegionTipShow: function (event, label, code) {
+
+                    if (label.html() == "Argentina") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: 100</p></div>');
+                    } else if (label.html() == "Australia") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsAU; ?></p></div>');
+                    } else if (label.html() == "Belgium") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsBE; ?></p></div>');
+                    } else if (label.html() == "Brazil") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsBR; ?></p></div>');
+                    } else if (label.html() == "Canada") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsCA; ?></p></div>');
+                    } else if (label.html() == "China") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsCH; ?></p></div>');
+                    } else if (label.html() == "Colombia") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsCL; ?></p></div>');
+                    } else if (label.html() == "Czech Rep.") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsCZ; ?></p></div>');
+                    } else if (label.html() == "Finland") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsFI; ?></p></div>');
+                    } else if (label.html() == "France") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsFR; ?></p></div>');
+                    } else if (label.html() == "Germany") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsDE; ?></p></div>');
+                    } else if (label.html() == "Hong Kong") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsHK; ?></p></div>');
+                    } else if (label.html() == "India") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsIN; ?></p></div>');
+                    } else if (label.html() == "Indonesia") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsID; ?></p></div>');
+                    } else if (label.html() == "Israel") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsIL; ?></p></div>');
+                    } else if (label.html() == "Iran") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsIR; ?></p></div>');
+                    } else if (label.html() == "Italy") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsIT; ?></p></div>');
+                    } else if (label.html() == "Japan") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsJP; ?></p></div>');
+                    } else if (label.html() == "Mexico") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsMX; ?></p></div>');
+                    } else if (label.html() == "Netherlands") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsNL; ?></p></div>');
+                    } else if (label.html() == "Norway") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsNO; ?></p></div>');
+                    } else if (label.html() == "Pakistan") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsPK; ?></p></div>');
+                    } else if (label.html() == "Poland") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsPL; ?></p></div>');
+                    } else if (label.html() == "Romania") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsRO; ?></p></div>');
+                    } else if (label.html() == "Russia") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsRU; ?></p></div>');
+                    } else if (label.html() == "South Africa") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsZA; ?></p></div>');
+                    } else if (label.html() == "Spain") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsES; ?></p></div>');
+                    } else if (label.html() == "Switzerland") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsCH; ?></p></div>');
+                    } else if (label.html() == "Taiwan") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsTW; ?></p></div>');
+                    } else if (label.html() == "Thailand") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsTH; ?></p></div>');
+                    } else if (label.html() == "Turkey") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsTR; ?></p></div>');
+                    } else if (label.html() == "United Kingdom") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsUK; ?></p></div>');
+                    } else if (label.html() == "Ukraine") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsUA; ?></p></div>');
+                    } else if (label.html() == "United States") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsUS; ?></p></div>');
+                    } else if (label.html() == "Venezuela") {
+                        label.html('<div class="map-label"><h4>' + label.html() + '</h4><p>Visits: <?php echo $hitsVE; ?></p></div>');
+                    } else {
+                        label.html('');
+                    }
+
+                },
+
+                regionStyle: {
+                    initial: {
+                        fill: '#ddd'
+                    },
+                    hover: {
+                        fill: '#aaa',
+                        cursor: 'pointer'
+                    },
+                    selected: {
+                        fill: '#aaa'
+                    }
+                },
+
+            });
+        });
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/5caacec953f1e453fb8c97a4/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <!-- Load Stripe.js on your website. -->
+    <script src="https://js.stripe.com/v3"></script>
+
+    <script>
+        var stripe = Stripe('pk_live_FvlYHgodG4fy0NtzvKHg1BpS');
+
+        // checkout for Entry Plan
+        var checkoutButtonEntry = document.getElementById('checkout-button-plan_EyB8t6WyZL6Xvc');
+        checkoutButtonEntry.addEventListener('click', function () {
+            stripe.redirectToCheckout({
+                items: [{ plan: 'plan_EyB8t6WyZL6Xvc', quantity: 1 }],
+                successUrl: 'https://upseo.io/stripesuccess.html',
+                cancelUrl: 'https://upseo.io/stripecanceled.html',
+                clientReferenceId: '<?php echo $refCookie; ?>',
+            })
+                .then(function (result) {
+                    if (result.error) {
+                        var displayError = document.getElementById('stripe-error-message');
+                        displayError.textContent = result.error.message;
+                    }
+                });
+        });
+
+        // checkout for Advanced Plan
+        var checkoutButtonAdvanced = document.getElementById('checkout-button-plan_EyB9JbWHpAr9y5');
+        checkoutButtonAdvanced.addEventListener('click', function () {
+            stripe.redirectToCheckout({
+                items: [{ plan: 'plan_EyB9JbWHpAr9y5', quantity: 1 }],
+                successUrl: 'https://upseo.io/stripesuccess.html',
+                cancelUrl: 'https://upseo.io/stripecanceled.html',
+                clientReferenceId: '<?php echo $refCookie; ?>',
+            })
+                .then(function (result) {
+                    if (result.error) {
+                        var displayError = document.getElementById('error-message');
+                        displayError.textContent = result.error.message;
+                    }
+                });
+        });
+
+        // checkout for Business Plan
+        var checkoutButtonBusiness = document.getElementById('checkout-button-plan_EyBBOj3AlDfCIv');
+        checkoutButtonBusiness.addEventListener('click', function () {
+            stripe.redirectToCheckout({
+                items: [{ plan: 'plan_EyBBOj3AlDfCIv', quantity: 1 }],
+                successUrl: 'https://upseo.io/stripesuccess.html',
+                cancelUrl: 'https://upseo.io/stripecanceled.html',
+                clientReferenceId: '<?php echo $refCookie; ?>',
+            })
+                .then(function (result) {
+                    if (result.error) {
+                        var displayError = document.getElementById('error-message');
+                        displayError.textContent = result.error.message;
+                    }
+                });
+        });
+
+        // checkout for Corporate Plan
+        var checkoutButtonCorporate = document.getElementById('checkout-button-plan_EyBBlS89XpQViT');
+        checkoutButtonCorporate.addEventListener('click', function () {
+            stripe.redirectToCheckout({
+                items: [{ plan: 'plan_EyBBlS89XpQViT', quantity: 1 }],
+                successUrl: 'https://upseo.io/stripesuccess.html',
+                cancelUrl: 'https://upseo.io/stripecanceled.html',
+                clientReferenceId: '<?php echo $refCookie; ?>',
+
+            })
+                .then(function (result) {
+                    if (result.error) {
+                        var displayError = document.getElementById('error-message');
+                        displayError.textContent = result.error.message;
+                    }
+                });
+        });
+
+
+    </script>
+
+</body>
+
+</html>

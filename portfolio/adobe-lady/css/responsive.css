@@ -1,0 +1,210 @@
+@media only screen and (max-width: 1200px) {
+	.welcome {
+		width: 98%;
+	}
+	.top-banner {
+	    padding-bottom: 0px;
+	}
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+	.navbar-inverse .navbar-nav > li {
+	    padding: 5px;
+	}
+	
+	.welcome h1 {
+	    font-size: 50px;
+	}
+	.welcome p {
+	    font-size: 30px;
+	}
+}
+
+ @media only screen and (max-width: 991px) {
+ 	.header-area .top .social ul {
+	    justify-content: center;
+	}
+	.achievement {
+	    width: 33%;
+	}
+	.client {
+		padding: 0 5px;
+	}
+	.work-process {
+	    padding: 50px 0 50px;
+	}
+	.single-work-process {
+	    margin-bottom: 30px;
+	}
+	.why-us .media {
+		margin-bottom: 20px;
+	}
+	.email-us {
+	    padding: 50px 0;
+	}
+	.email-us h2 {
+	    font-size: 40px;
+	}
+	.email-us h1 {
+	    font-size: 60px;
+	}
+	.email-us h3 {
+	    font-size: 34px;
+	    font-weight: 400;
+	}
+	.section-title {
+	    padding-left: 15px;
+	}
+	.section-title:before {
+	    left: 0;
+	}
+ }
+
+ @media only screen and (max-width: 991px) and (orientation: portrait) {
+ 	.header-area {
+	    min-height: 70vh;
+	}
+ }
+
+ @media only screen and (min-width: 768px) and (max-width: 991px) {
+ 	.welcome h1 {
+	    font-size: 40px;
+	}
+	.welcome p {
+	    font-size: 26px;
+	}
+ }
+
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+	.welcome {
+	    top: 60%;
+	}
+	.header-area {
+	    min-height: 460px;
+	}
+}
+
+ @media only screen and (max-width: 767px) {
+	.welcome {
+	    top: 65%;
+	}
+ 	.welcome h1 {
+	    font-size: 30px;
+	}
+	.welcome p {
+	    font-size: 20px;
+	}
+	
+	.portfolio-grids .portfolio-item {
+	    width: 50%;
+	}
+	.breadcrumb-section {
+	    padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+	}
+	.email-us h1 {
+	    font-size: 56px;
+	}
+	.portfolio-item .overlay .info .lightbox {
+	    font-size: 20px;
+	}
+	.chat-us h1 a {
+	     margin-top: 0; 
+	}
+	.hero-slider .slick-dots {
+	    bottom: -25px;
+	}
+	.hero-slider .slick-dots li button:before {
+	    color: #c1c1c1;
+	}
+	.hero-slider .slick-dots li.slick-active button:before {
+	    color: #868686;
+	}
+	.email-us-2 .btn {
+	    font-size: 14px;
+	    letter-spacing: 4px;
+	}
+}
+
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+}
+
+
+@media only screen and (max-width: 567px) {
+	.chat {
+	    float: none !important;
+	    clear: both;
+	    display: block !important;
+	    text-align: center;
+	    padding: 10px 0;
+	}
+	.header-area .top .options ul.chat > li > a {
+	    display: inline-block;
+	    padding: 5px 10px;
+	    border: 2px solid #4cb050;
+	    border-radius: 8px;
+	    border-top: none;
+	    border-bottom: none;
+	}
+	.welcome h1 {
+	    font-size: 24px;
+	}
+	.welcome p {
+	    font-size: 16px;
+	}
+	.achievement {
+	    width: 50%;
+	}
+
+}
+@media only screen and (max-width: 480px) {
+	.header-area .top .options > ul > li {
+	    font-size: 14px;
+	}
+	.portfolio-grids .portfolio-item {
+	    width: 100%;
+	}
+	.hero-text {
+	    padding: 0 10px;
+	}
+	.hero-text h1 {
+	    font-size: 40px;
+	    margin-bottom: 15px;
+	}
+	.hero-text h3 {
+	    font-size: 20px;
+	}
+	.email-us h1 {
+	    font-size: 40px;
+	}
+	.email-us h2 {
+	    font-size: 34px;
+	}
+	.email-us h4 {
+	    font-size: 22px;
+	}
+	.work-with-me h4 {
+	    letter-spacing: 1px;
+	}
+	.email-us h3 {
+	    font-size: 26px;
+	}
+	.footer-text h2 {
+	    font-size: 24px;
+	}
+	.join-us h1 {
+	    font-size: 50px;
+	}
+	.join-us h1, .join-us h3, .join-us h4 {
+	    margin: 10px;
+	}
+}
+
+
+@media only screen and (max-width: 320px) {
+	.achievement-icon {
+	    transform: scale(0.6) rotate(48deg);
+	}
+}

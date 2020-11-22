@@ -1,0 +1,135 @@
+/*-----------------------------------------------
+   General Styling
+-----------------------------------------------*/
+*,
+::after,
+::before {
+    box-sizing: border-box
+}
+
+* {
+    outline: 0;
+}
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #333333;
+    background-color: #fff;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-container {
+    width: 300px;
+    height: 250px;
+    color: #FFF;
+    background-image: url("../images/bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+.banner-front, .banner-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem 1rem;
+}
+
+.banner-front {
+    h6 {
+        margin-bottom: 1rem;
+    }
+
+    .phone-container {
+        padding: 0 0.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .phone {
+            position: relative;
+
+            &#dropZone {
+                .money {
+                    top: 33px;
+                    left: 18px;
+                    display: none;
+                }
+            }
+
+            .money {
+                position: absolute;
+                top: 35px;
+                left: 14px;
+                z-index: 1;
+
+                &#dropItem {
+                    cursor: grab;
+                    display: none;
+                }
+
+            }
+        }
+    }
+
+    .banner-logo {
+        margin-top: 0.5rem;
+    }
+
+}
+
+.banner-back {
+    display: none;
+
+    h6 {
+        margin-bottom: 0.15rem;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            font-size: 0.5rem;
+            position: relative;
+            padding-left: 10px;
+
+            &:before {
+                content: '*';
+                position: absolute;
+                top: 2px;
+                left: 0;
+            }
+        }
+    }
+
+    .helpline-container {
+        text-align: center;
+        margin-top: 0.25rem;
+        position: relative;
+
+        .wallet-btn {
+            position: absolute;
+            top: 4%;
+            right: 14%;
+        }
+    }
+
+    .banner-logo {
+        margin-top: auto;
+    }
+}

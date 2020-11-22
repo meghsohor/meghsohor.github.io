@@ -1,0 +1,770 @@
+/* ------------------------------------------------------------------
+[Table of contents]
+    1. GLOBAL Styles ---------------Line 27-45
+    2. Header styles ---------------Line 48-85
+    3. Baner styles ---------------Line 91-167
+    4. About Us styles ---------------Line 171-215
+    5. People Area styles ---------------Line 220-288
+    6. look-for styles ---------------Line 293-311
+    7. Find Us styles ---------------Line 316-337
+    8. social-area styles ---------------Line 342-366
+    9. Footer styles ---------------Line 370-374
+    10. Landing Page two styles ---------------Line 379-446
+    10. How it Works styles ---------------Line 396-446
+    10. Responsive Queries ---------------Line 459-769
+    
+    
+------------------------------------------------------------------ */
+
+/* GLOBAL Styles Starts */
+body
+{
+        border-top:5px solid #92ea48;
+        font-family: 'Open Sans', sans-serif;
+        color:#333333;
+        min-height: 100%;
+        height: auto;
+        position: relative;
+}
+.no-padding {padding: 0 !important;}
+.no-margin {margin: 0 !important;}
+ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+p
+{
+        margin:5px 0;
+        line-height:25px;
+}
+
+a
+{
+        text-decoration:none;
+        color:inherit;
+        transition: color .5s ease;
+}
+a:hover, a:active, a:focus {color: #5dc408; text-decoration:none;}
+
+strong
+{
+        font-weight:bold;
+}
+/* GLOBAL Styles Ends */
+
+/*Header styles Starts*/
+.header {
+    background: url('../img/banner-bg.jpg') no-repeat top  center;
+    background-size: 100% 100%;
+    padding-bottom: 60px;
+}
+.header-area {
+    background: rgba(255,255,255,1);
+background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0.89) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,0.89)));
+background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0.89) 100%);
+background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0.89) 100%);
+background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0.89) 100%);
+background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.89) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
+}
+.logo {margin: auto;}
+.navbar-default {
+     background-color: transparent !important; 
+     border: none !important;
+         margin: 0; 
+}
+
+.nav {
+    margin-top: 45px !important;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #777;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color: #92ea48;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+    color: #92ea48;
+    background-color: transparent;
+}
+/*Header styles Starts*/
+
+
+/*Baner styles Starts*/
+.baner-area {
+    padding-top: 100px;
+    padding-bottom: 60px;
+    color: #fff;
+}
+.baner {
+    max-width: 1000px;
+    margin: auto;
+}
+.baner h2 {
+        text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 5px;
+    max-width: 400px;
+    padding: 0 10px;
+}
+.baner h1 {
+        margin: 0 0 20px;
+    text-transform: uppercase;
+    color: #4ac303;
+    padding: 0 10px;
+}
+.baner p {
+    max-width: 400px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+.baner-link {}
+.my-btn {
+    display: block;
+    width: 300px;
+    margin: 10px auto;
+    border-radius: 3px;
+    padding: 3px 5px 3px 15px;
+}
+.my-btn:hover {color: #fff}
+.my-btn i {
+    vertical-align: middle;
+    line-height: 50px;
+    font-size: 25px;
+    color: #fff;
+}
+.my-btn p {
+    margin: 0 !important;
+    font-size: 14px !important;
+    color: #fff;
+    text-align: center;
+}
+.my-btn h4 {
+    margin: 0 !important;
+    color: #efefef;
+    font-size: 18px !important; 
+    text-transform: uppercase !important; 
+    font-weight: normal !important;
+    text-align: center;
+}
+.orange {
+    background: rgba(255,130,27,1);
+background: -moz-linear-gradient(top, rgba(255,130,27,1) 0%, rgba(239,96,0,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,130,27,1)), color-stop(100%, rgba(239,96,0,1)));
+background: -webkit-linear-gradient(top, rgba(255,130,27,1) 0%, rgba(239,96,0,1) 100%);
+background: -o-linear-gradient(top, rgba(255,130,27,1) 0%, rgba(239,96,0,1) 100%);
+background: -ms-linear-gradient(top, rgba(255,130,27,1) 0%, rgba(239,96,0,1) 100%);
+background: linear-gradient(to bottom, rgba(255,130,27,1) 0%, rgba(239,96,0,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff821b', endColorstr='#ef6000', GradientType=0 );
+}
+.green {
+    background: rgba(138,197,61,1);
+background: -moz-linear-gradient(top, rgba(138,197,61,1) 0%, rgba(92,196,8,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(138,197,61,1)), color-stop(100%, rgba(92,196,8,1)));
+background: -webkit-linear-gradient(top, rgba(138,197,61,1) 0%, rgba(92,196,8,1) 100%);
+background: -o-linear-gradient(top, rgba(138,197,61,1) 0%, rgba(92,196,8,1) 100%);
+background: -ms-linear-gradient(top, rgba(138,197,61,1) 0%, rgba(92,196,8,1) 100%);
+background: linear-gradient(to bottom, rgba(138,197,61,1) 0%, rgba(92,196,8,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ac53d', endColorstr='#5cc408', GradientType=0 );
+}
+/*Baner styles Ends*/
+
+/*About Us styles Starts*/
+.about-us {
+    padding: 20px 0 30px;
+}
+.about-us .container {
+        max-width: 1000px;
+    background: url('../img/about-bg.jpg') no-repeat top right;
+    background-size: contain;
+}
+.about-us h2 {font-size: 36px;}
+.about-us h3 {
+        margin-bottom: 20px;
+    font-weight: lighter;
+    text-transform: uppercase;
+}
+.about-us h4 {
+        font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    margin-bottom: 0;
+}
+.about-middle {
+    margin-bottom: 110px;
+}
+.about-us p {
+        font-size: 16px;
+    line-height: 22px;
+}
+.about-list-head {
+    margin-top: 20px;
+}
+.about-list-head .number {
+        display: block;
+    float: left;
+    padding: 10px 16px;
+    background: #81dc17;
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 50%;
+}
+.about-list-head-title { margin-bottom: 20px;}
+.about-list-head-title p {margin: 0;text-transform: uppercase;}
+.about-list-head-title h4 {margin: 0;text-transform: uppercase;}
+/*About Us styles Ends*/
+
+/*People Area Styles Starts*/
+.people {    
+    background: url('../img/people-bg.jpg') no-repeat top center;
+    background-size: 100% 100%;
+    padding: 30px 0;
+}
+.people .container {max-width: 1000px;}
+.people h2 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    color: #fff;
+}
+.people p {text-align: center;color: #fff; font-size: 16px}
+.people-carousel {
+    margin-top: 30px;
+}
+
+.slick-slide {
+    height: 230px;
+    padding-top: 30px;
+    outline: none;
+    margin-bottom: 5px;
+}
+.slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: white;
+}
+.slick-dots li button:before {
+    font-size: 14px;
+    opacity: .25;
+    color: white;
+}
+.single-people {
+    background: #fff;
+    border-radius: 5px;
+    margin-right: 10px;
+    padding: 5px;
+}
+.single-people-heading {
+    float: right;
+    width: 180px;
+    margin-bottom: 15px;
+}
+.single-people img {
+    position: absolute;
+    width: 90px !important;
+    top: 0;
+}
+.single-people h2 {
+    margin: 5px 0;
+    font-size: 16px !important;
+     line-height: 18px !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000;
+}
+.single-people h4 {
+    margin: 5px 0;
+    font-size: 12px;
+    color: #a09d9d;
+    text-align: center;
+    font-weight: bold;
+}
+.single-people p {
+    clear: both;
+    font-size: 16px !important;
+    color: #000;
+    font-style: italic;
+}
+/*People Area Styles Ends*/
+
+/*look-for styles Starts*/
+.look-for {}
+.look-for h2 {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 30px 0 0;
+}
+.look-for img {}
+.look-for h4 {
+        font-weight: bold;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin: 60px 0 40px;
+}
+.look-for p {
+    margin-bottom: 35px;
+    font-size: 16px;
+}
+.look-for a {margin: 0;}
+
+/*look-for styles Ends*/
+
+/*Find Us styles Starts*/
+.find-us {
+        background: url('../img/find-us-bg.jpg') no-repeat top center;
+    padding: 20px 0 30px;
+    margin-top: -17px;
+    background-size: cover;
+}
+.find-us .container {
+        max-width: 1000px;
+    margin: 25px auto;
+}
+.find-us h2 {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+}
+.find-us h2 span {color: #5dc408;}
+.find-us p {
+    color: #fff;
+    font-size: 16px;
+    max-width: 650px;
+    margin: 5px auto 30px;
+}
+/*Find Us styles Ends*/
+
+/*social-area styles Starts*/
+.social-area {}
+.social-area .container {
+        margin: 50px auto;
+    max-width: 500px;
+}
+.social-area img {
+    margin: 0 auto 20px;
+}
+
+.social-area .links {
+    text-align: center;
+}
+.social-area .links li {
+    padding-left: 0;
+    font-size: 16px;
+}
+.social-area .social-icons {
+    text-align: center;
+    margin-top: 30px;
+}
+.social-area .social-icons li a {
+    font-size: 24px;
+    margin-right: 10px;
+}
+/*social-area styles Ends*/
+
+/*Footer Styles Starts*/
+.footer {
+    background: #272727;
+    color: #fff;
+    padding: 15px 0;
+}
+/*Footer Styles Ends*/
+
+
+/*-----------Landing Page two Styles---------------*/
+.index-2 .header {
+    background: url('../img/banner-bg-2.jpg') no-repeat top -55px center;
+    background-size: cover;
+    padding-bottom: 60px;
+    background-size: 100% 100%;
+}
+
+.index-2 .baner h1 {
+    color: #DC6D16;
+    font-size: 40px;
+    letter-spacing: 4px;
+}
+.index-2 .baner p {
+    margin-bottom: 20px;
+}
+
+/*How it Works styles Starts*/
+.how-work {}
+.how-work h2 {
+    text-align: center;
+    text-transform: uppercase;
+    margin: -20px 0 30px;
+}
+.how-work-img {
+    margin-top: -20px;
+    margin-left: 20px;
+    height: 520px;
+    max-width: none;
+    width: auto;
+    margin-bottom: -15px;
+}
+.how-work h4 {
+        font-weight: bold;
+    text-transform: uppercase;
+        font-size: 18px;
+    margin: 30px 0 10px;
+}
+.how-work p {
+    margin-bottom: 35px;
+    font-size: 16px;
+}
+.point-1, .point-2, .point-3 {
+    position: relative;
+}
+.point-1:after {
+        content: "";
+    background: url("../img/top-line.png") no-repeat no-repeat center;
+    position: absolute;
+    width: 301px;
+    height: 60px;
+    left: calc(100% - 65px);
+    bottom: -35px;
+    background-size: contain;
+}
+.point-2:after {
+    content: "";
+    background: url("../img/bottom-line.png") no-repeat no-repeat center;
+    position: absolute;
+    width: 340px;
+    height: 73px;
+    right: calc(100% - 65px);
+    bottom: -20px;
+    background-size: contain;
+}
+.point-3 {
+
+}
+
+/*-----------Landing Page two Styles Ends---------------*/
+
+
+
+
+
+
+/*Responsive Queries*/
+
+/*----------------min Width 1900px----------------------*/
+@media (min-width: 1900px) {
+    .find-us {
+        margin-top: -25px !important;
+    }
+}
+
+/*----------------min Width 1600px----------------------*/
+@media (min-width: 1600px) {
+    .find-us {
+        margin-top: -20px;
+    }
+    .header {
+        min-height: 80vh;
+    }
+    .baner-area {
+      padding-top: 130px;
+    }
+    .baner h2 {
+      max-width: 500px;
+    }
+    .baner h2, .how-work h2, .people h2, .look-for h2, .about-us h2, .find-us h2 {
+        font-size: 36px;
+         line-height: 40px;
+    }
+    .baner h1 {
+      font-size: 48px;
+      margin-bottom: 50px;
+    }
+    .index-2 .baner h1 {
+        margin-bottom: 20px;
+    }
+    .baner p, .about-us p, .people p, .find-us p, .footer p {
+      font-size: 20px;
+      line-height: 28px;
+    }
+    .baner p {
+      max-width: 450px;
+    }
+    .baner .my-btn {
+      margin-top: 60px;
+    }
+     .my-btn {
+      padding: 10px 15px;
+      width: 350px;
+    }
+    .my-btn p {
+      font-size: 16px !important;
+    }
+    .my-btn h4 {
+        font-size: 20px !important;
+    }
+    .about-middle {
+      margin-bottom: 45px;
+    }
+    .find-us h2 {
+        line-height: 55px;
+    }
+    .find-us p {
+      max-width: 800px;
+    }
+}
+
+/*----------------min Width 1420px----------------------*/
+@media (min-width: 1420px) {
+
+}
+
+/*----------------Max Width 1200px----------------------*/
+@media (max-width: 1200px) {
+    .col-md-offset-1 {
+        margin-left: 0;
+    }
+    .header {
+        background: url('../img/banner-bg.jpg') no-repeat top center;
+        background-size: cover;
+    }
+
+    .look-for p {
+        margin-bottom: 25px;
+    }
+    .look-for h4 {
+        margin: 40px 0 30px;
+    }
+    .look-for img {
+        height: 460px;
+    }
+    .index-2 .header {
+        background-size: cover;
+        padding-bottom: 20px;
+    }
+    .index-2 .baner-area {
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+    .index-2 .baner-area .my-btn {
+        margin-bottom: 50px;
+    }
+    .index-2 .how-work h2 {
+        margin: -20px 0 30px;
+    }
+    .how-work-img {
+            margin-top: -33px;
+        margin-left: -20px;
+        height: auto;
+        max-width: 100%;
+        width: auto;
+        margin-bottom: -14px;
+    }
+    .point-1:after {
+        width: 300px;
+        height: 55px;
+        left: calc(100% - 80px);
+        bottom: -42px;
+    }
+    .point-2:after {
+        width: 300px;
+        height: 64px;
+        right: calc(100% - 65px);
+        bottom: -35px;
+    }
+    .find-us {
+        margin-top: -16px;
+    }
+}
+
+/*----------------Max Width 991px----------------------*/
+@media (max-width: 991px) {
+    .nav {
+        margin-top: 10px !important;
+    }
+    .about-us .container {
+        background: none;
+    }
+    .look-for .container {
+        width: 100%;
+    }
+    .look-for img {
+        display: none;
+    }
+    .look-for a {
+        margin: 0 auto 40px;
+    }
+    .look-for h4 {
+        text-align: center;
+    }
+    .how-work-img {
+        display: none;
+    }
+    .point-1, .point-2, .point-3 {
+        margin-left: 0;
+    }
+    .point-1 img, .point-2 img, .point-3 img {
+        max-width: 100px;
+        margin: auto;
+    }
+    .point-1:after, .point-2:after {
+        display: none;
+    }
+    .how-work p {
+        margin-bottom: 0;
+    }
+    .point-1 img, .point-3 img {
+        margin-right: 0;
+    }
+    .point-2 img {
+        margin-left: 0;
+    }
+    .point-1-detail, .point-2-detail, .point-3-detail {
+
+    }
+    .point-2-detail {
+        padding-left: 30px;
+            text-align: right;
+    }
+    .index-2 .how-work h2 {
+        margin: -20px 0 10px;
+    }
+    .about-middle {
+        margin-bottom: 10px;
+    }
+}
+
+/*----------------Max Width 846px----------------------*/
+@media (max-width: 846px) {
+    .baner p {
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    .baner {
+        text-align: center;
+    }
+    .baner h2, .baner h1 {
+        font-size: 24px;
+    }
+    .baner h2 {
+        margin: 20px auto 5px;
+        max-width: 450px;
+    }
+    .baner-area {
+        padding-top: 40px;
+        padding-bottom: 10px;
+    }
+}
+
+/*----------------Max Width 767px----------------------*/
+@media (max-width: 767px) {
+    .nav {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .nav>li>a {
+        text-align: center;
+        font-size: 18px;
+    }
+    .header-area {
+        background: #fff;
+    }
+    .find-us h2 {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    .find-us h2 span {
+        display: block;
+    }
+    .about-list-head {
+        margin-top: 10px;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: rgba(221, 221, 221, 0);
+        margin-right: 0;
+    }
+    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+        background-color: transparent;
+    }
+    .navbar-toggle .icon-bar {
+        width: 30px;
+        height: 3px;
+        background-color: #6fc41e !important;
+    }
+    .baner p {
+        padding: 0 10px;
+    }
+    .look-for h2 {
+        font-size: 22px;
+    }
+    .look-for h4 {
+        font-size: 18px;
+    }
+    .people {
+        background-size: cover;
+        margin-top: 20px;
+    }
+    .point-1 img, .point-2 img, .point-3 img {
+        max-width: 100px !important;
+        margin: auto;
+    }
+    .point-1:after, .point-2:after {
+        display: none;
+    }
+    .how-work p {
+        margin-bottom: 0;
+    }
+    .index-2 .how-work h2 {
+        margin: -20px 0 10px;
+    }
+    .my-btn {
+        margin-bottom: 20px;
+    }
+    .header {
+        padding-bottom: 30px;
+    }
+    .how-work h4 {
+        margin: 20px 0 10px;
+    }
+    .point-1 img, .point-3 img {
+        margin-right: 0;
+    }
+    .point-2 img {
+        margin-left: 0;
+    }
+    .find-us {
+        padding: 0;
+    }
+    .about-us {
+        padding: 10px 0;
+    }
+    .social-area .container {
+        margin: 30px auto;
+    }
+}
+
+/*----------------Max Width 520px----------------------*/
+@media (max-width: 520px) {
+    .single-people-heading {
+        width: auto;
+    }
+}
+
+/*----------------Max Width 480px----------------------*/
+@media (max-width: 480px) {
+    .single-people-heading {
+        float: none;
+    }
+}
+
+/*----------------Max Width 450px----------------------*/
+@media (max-width: 450px) {
+    .people h2 strong {
+        display: block;
+    }
+}
